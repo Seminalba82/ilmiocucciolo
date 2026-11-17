@@ -1,0 +1,477 @@
+IL MIO CUCCIOLO - ELENCO DELLE FRASI DA REGISTRARE
+
+Ogni file va salvato come  voci/<voce>/<nome file>.mp3
+(esempio: voci/eroe/saluto-1.mp3). Le frasi senza file restano dette dalla voce sintetica.
+{nome} = il nome del cucciolo (nelle registrazioni puoi saltarlo o dire "il cucciolo").
+
+==================== VOCE: Bimbo  (cartella voci/bimbo/) ====================
+adozione-1.mp3        Hai scelto me?! Che bello! Andiamo a casa!
+saluto-1.mp3          Ciao! Sono {nome}! Dai, giochiamo!
+saluto-2.mp3          Ehi, ci sei! Ti stavo aspettando!
+saluto-3.mp3          Buongiorno! Cosa si mangia oggi?
+fame-1.mp3            Ho fame!
+fame-2.mp3            La pancia mi fa brr brr!
+fame-3.mp3            Cosa si mangia oggi?
+buono-1.mp3           Mmm, che buono!
+buono-2.mp3           Mi lecco i baffi!
+buono-3.mp3           Ancora, ancora!
+solito-1.mp3          Sempre crocchette... vabbè.
+solito-2.mp3          Meglio di niente.
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lanciala! Lanciala!
+gioca-2.mp3           Corro, corro, corro!
+gioca-3.mp3           La prendo io! La prendo io!
+preso-1.mp3           Eccola qua!
+preso-2.mp3           Hai visto quanto sono bravo?
+preso-3.mp3           Ancora una volta!
+stanco-1.mp3          Sono stanco morto...
+stanco-2.mp3          Non mi muovo più, fammi dormire.
+sporco-1.mp3          Faccio puzza, lo so...
+sporco-2.mp3          Mi mangiano le pulci!
+sporco-3.mp3          Mi prude tutto!
+bagnoNo-1.mp3         L'acqua no! L'acqua no!
+bagnoNo-2.mp3         Uh, che freddo!
+pulito-1.mp3          Ora sono un fiore!
+pulito-2.mp3          Profumo come un giardino!
+sonno-1.mp3           Mi calano gli occhi...
+sonno-2.mp3           Buonanotte a tutti...
+sveglia-1.mp3         Già mattina?
+sveglia-2.mp3         Buongiorno! Ho dormito come un ghiro!
+carezze-1.mp3         Ancora, non ti fermare!
+carezze-2.mp3         Grattami la pancia!
+carezze-3.mp3         Ti voglio bene!
+noia-1.mp3            Mi annoio...
+noia-2.mp3            Non c'è niente da fare?
+noia-3.mp3            Giochiamo? Dai, giochiamo!
+triste-1.mp3          Nessuno mi vuole bene...
+triste-2.mp3          Mi sento solo...
+cacca-1.mp3           Non guardare!
+cacca-2.mp3           Un vero capolavoro.
+cacca-3.mp3           Scusate, era urgente.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Non sono stato io!
+scoreggia-2.mp3       È stato il gatto!
+scoreggia-3.mp3       Questi fagioli, maledetti...
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Il gatto! Il gatto!
+gatto-2.mp3           Scendi di lì se hai coraggio!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Guardami, guardami!
+trucco-2.mp3          Sono un artista!
+trucco-3.mp3          E ora l'applauso!
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...
+
+==================== VOCE: Bimba  (cartella voci/bimba/) ====================
+adozione-1.mp3        Hai scelto me?! Che bello! Andiamo a casa!
+saluto-1.mp3          Ciao! Sono {nome}! Dai, giochiamo!
+saluto-2.mp3          Ehi, ci sei! Ti stavo aspettando!
+saluto-3.mp3          Buongiorno! Cosa si mangia oggi?
+fame-1.mp3            Ho fame!
+fame-2.mp3            La pancia mi fa brr brr!
+fame-3.mp3            Cosa si mangia oggi?
+buono-1.mp3           Mmm, che buono!
+buono-2.mp3           Mi lecco i baffi!
+buono-3.mp3           Ancora, ancora!
+solito-1.mp3          Sempre crocchette... vabbè.
+solito-2.mp3          Meglio di niente.
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lanciala! Lanciala!
+gioca-2.mp3           Corro, corro, corro!
+gioca-3.mp3           La prendo io! La prendo io!
+preso-1.mp3           Eccola qua!
+preso-2.mp3           Hai visto quanto sono bravo?
+preso-3.mp3           Ancora una volta!
+stanco-1.mp3          Sono stanco morto...
+stanco-2.mp3          Non mi muovo più, fammi dormire.
+sporco-1.mp3          Faccio puzza, lo so...
+sporco-2.mp3          Mi mangiano le pulci!
+sporco-3.mp3          Mi prude tutto!
+bagnoNo-1.mp3         L'acqua no! L'acqua no!
+bagnoNo-2.mp3         Uh, che freddo!
+pulito-1.mp3          Ora sono un fiore!
+pulito-2.mp3          Profumo come un giardino!
+sonno-1.mp3           Mi calano gli occhi...
+sonno-2.mp3           Buonanotte a tutti...
+sveglia-1.mp3         Già mattina?
+sveglia-2.mp3         Buongiorno! Ho dormito come un ghiro!
+carezze-1.mp3         Ancora, non ti fermare!
+carezze-2.mp3         Grattami la pancia!
+carezze-3.mp3         Ti voglio bene!
+noia-1.mp3            Mi annoio...
+noia-2.mp3            Non c'è niente da fare?
+noia-3.mp3            Giochiamo? Dai, giochiamo!
+triste-1.mp3          Nessuno mi vuole bene...
+triste-2.mp3          Mi sento solo...
+cacca-1.mp3           Non guardare!
+cacca-2.mp3           Un vero capolavoro.
+cacca-3.mp3           Scusate, era urgente.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Non sono stato io!
+scoreggia-2.mp3       È stato il gatto!
+scoreggia-3.mp3       Questi fagioli, maledetti...
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Il gatto! Il gatto!
+gatto-2.mp3           Scendi di lì se hai coraggio!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Guardami, guardami!
+trucco-2.mp3          Sono un artista!
+trucco-3.mp3          E ora l'applauso!
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...
+
+==================== VOCE: Supereroe  (cartella voci/eroe/) ====================
+adozione-1.mp3        Hai scelto me?! Che bello! Andiamo a casa!
+saluto-1.mp3          Ciao! Sono {nome}! Dai, giochiamo!
+saluto-2.mp3          Ehi, ci sei! Ti stavo aspettando!
+saluto-3.mp3          Buongiorno! Cosa si mangia oggi?
+fame-1.mp3            Ho fame!
+fame-2.mp3            La pancia mi fa brr brr!
+fame-3.mp3            Cosa si mangia oggi?
+buono-1.mp3           Mmm, che buono!
+buono-2.mp3           Mi lecco i baffi!
+buono-3.mp3           Ancora, ancora!
+solito-1.mp3          Sempre crocchette... vabbè.
+solito-2.mp3          Meglio di niente.
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lanciala! Lanciala!
+gioca-2.mp3           Corro, corro, corro!
+gioca-3.mp3           La prendo io! La prendo io!
+preso-1.mp3           Eccola qua!
+preso-2.mp3           Hai visto quanto sono bravo?
+preso-3.mp3           Ancora una volta!
+stanco-1.mp3          Sono stanco morto...
+stanco-2.mp3          Non mi muovo più, fammi dormire.
+sporco-1.mp3          Faccio puzza, lo so...
+sporco-2.mp3          Mi mangiano le pulci!
+sporco-3.mp3          Mi prude tutto!
+bagnoNo-1.mp3         L'acqua no! L'acqua no!
+bagnoNo-2.mp3         Uh, che freddo!
+pulito-1.mp3          Ora sono un fiore!
+pulito-2.mp3          Profumo come un giardino!
+sonno-1.mp3           Mi calano gli occhi...
+sonno-2.mp3           Buonanotte a tutti...
+sveglia-1.mp3         Già mattina?
+sveglia-2.mp3         Buongiorno! Ho dormito come un ghiro!
+carezze-1.mp3         Ancora, non ti fermare!
+carezze-2.mp3         Grattami la pancia!
+carezze-3.mp3         Ti voglio bene!
+noia-1.mp3            Mi annoio...
+noia-2.mp3            Non c'è niente da fare?
+noia-3.mp3            Giochiamo? Dai, giochiamo!
+triste-1.mp3          Nessuno mi vuole bene...
+triste-2.mp3          Mi sento solo...
+cacca-1.mp3           Non guardare!
+cacca-2.mp3           Un vero capolavoro.
+cacca-3.mp3           Scusate, era urgente.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Non sono stato io!
+scoreggia-2.mp3       È stato il gatto!
+scoreggia-3.mp3       Questi fagioli, maledetti...
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Il gatto! Il gatto!
+gatto-2.mp3           Scendi di lì se hai coraggio!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Guardami, guardami!
+trucco-2.mp3          Sono un artista!
+trucco-3.mp3          E ora l'applauso!
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...
+
+==================== VOCE: Dolce  (cartella voci/dolce/) ====================
+adozione-1.mp3        Hai scelto me? Ti voglio già bene!
+saluto-1.mp3          Ciao amore mio! Mi sei mancato tantissimo!
+saluto-2.mp3          Che bello che sei tornato!
+fame-1.mp3            Scusa... avrei un po' di fame.
+fame-2.mp3            Mi dai un pezzettino da mangiare?
+buono-1.mp3           Grazie, era una poesia!
+buono-2.mp3           Che bontà, grazie!
+solito-1.mp3          Crocchette... grazie lo stesso.
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lanciala! Lanciala!
+gioca-2.mp3           Corro, corro, corro!
+gioca-3.mp3           La prendo io! La prendo io!
+preso-1.mp3           Eccola qua!
+preso-2.mp3           Hai visto quanto sono bravo?
+preso-3.mp3           Ancora una volta!
+stanco-1.mp3          Sono stanco morto...
+stanco-2.mp3          Non mi muovo più, fammi dormire.
+sporco-1.mp3          Faccio puzza, lo so...
+sporco-2.mp3          Mi mangiano le pulci!
+sporco-3.mp3          Mi prude tutto!
+bagnoNo-1.mp3         Piano piano, che ho paura.
+pulito-1.mp3          Ora sono un fiore!
+pulito-2.mp3          Profumo come un giardino!
+sonno-1.mp3           Buonanotte, sogni d'oro.
+sveglia-1.mp3         Già mattina?
+sveglia-2.mp3         Buongiorno! Ho dormito come un ghiro!
+carezze-1.mp3         Sei il mio cuore!
+carezze-2.mp3         Che bello, così mi addormento.
+noia-1.mp3            Mi annoio...
+noia-2.mp3            Non c'è niente da fare?
+noia-3.mp3            Giochiamo? Dai, giochiamo!
+triste-1.mp3          Nessuno mi vuole bene...
+triste-2.mp3          Mi sento solo...
+cacca-1.mp3           Non guardare!
+cacca-2.mp3           Un vero capolavoro.
+cacca-3.mp3           Scusate, era urgente.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Non sono stato io!
+scoreggia-2.mp3       È stato il gatto!
+scoreggia-3.mp3       Questi fagioli, maledetti...
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Il gatto! Il gatto!
+gatto-2.mp3           Scendi di lì se hai coraggio!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Guardami, guardami!
+trucco-2.mp3          Sono un artista!
+trucco-3.mp3          E ora l'applauso!
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...
+
+==================== VOCE: Brontolone  (cartella voci/rude/) ====================
+adozione-1.mp3        Hai preso me. Ottima scelta, sono il migliore.
+saluto-1.mp3          Oh. Finalmente sei arrivato.
+saluto-2.mp3          Che guardi? Sono {nome}, e qui comando io.
+fame-1.mp3            Oh! Si mangia o no?!
+fame-2.mp3            Muovi le mani e porta da mangiare!
+buono-1.mp3           Si poteva fare meglio. Dammene un altro.
+buono-2.mp3           Era poco!
+solito-1.mp3          Ancora crocchette?! Mangiale tu!
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lancia meglio, scarso!
+gioca-2.mp3           Questa la prendeva anche mia nonna.
+preso-1.mp3           Fatto. Troppo facile.
+stanco-1.mp3          Basta. Corri tu, se ti piace.
+sporco-1.mp3          Puzza? È profumo di cane vero.
+bagnoNo-1.mp3         Se mi lavi ti mordo!
+pulito-1.mp3          Sembro un barboncino. Che vergogna.
+sonno-1.mp3           Spegni la luce e vattene.
+sveglia-1.mp3         Chi è stato a svegliarmi?!
+carezze-1.mp3         Vabbè... continua. Ma non ti ci abituare.
+carezze-2.mp3         Più a sinistra. No, l'altra sinistra!
+noia-1.mp3            Che noia...
+triste-1.mp3          Bravo. Lasciami solo, tanto.
+cacca-1.mp3           Raccoglila tu. Io l'ho fatta.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Sono stato io. E allora?
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Scendi, che ti faccio la festa!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Lo faccio solo per le monete.
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...
+
+==================== VOCE: Nonno saggio  (cartella voci/nonno/) ====================
+adozione-1.mp3        Hai scelto me?! Che bello! Andiamo a casa!
+saluto-1.mp3          Ciao! Sono {nome}! Dai, giochiamo!
+saluto-2.mp3          Ehi, ci sei! Ti stavo aspettando!
+saluto-3.mp3          Buongiorno! Cosa si mangia oggi?
+fame-1.mp3            Ho fame!
+fame-2.mp3            La pancia mi fa brr brr!
+fame-3.mp3            Cosa si mangia oggi?
+buono-1.mp3           Mmm, che buono!
+buono-2.mp3           Mi lecco i baffi!
+buono-3.mp3           Ancora, ancora!
+solito-1.mp3          Sempre crocchette... vabbè.
+solito-2.mp3          Meglio di niente.
+pieno-1.mp3           Sono pieno come un uovo!
+pieno-2.mp3           Basta, che scoppio!
+gioca-1.mp3           Lanciala! Lanciala!
+gioca-2.mp3           Corro, corro, corro!
+gioca-3.mp3           La prendo io! La prendo io!
+preso-1.mp3           Eccola qua!
+preso-2.mp3           Hai visto quanto sono bravo?
+preso-3.mp3           Ancora una volta!
+stanco-1.mp3          Sono stanco morto...
+stanco-2.mp3          Non mi muovo più, fammi dormire.
+sporco-1.mp3          Faccio puzza, lo so...
+sporco-2.mp3          Mi mangiano le pulci!
+sporco-3.mp3          Mi prude tutto!
+bagnoNo-1.mp3         L'acqua no! L'acqua no!
+bagnoNo-2.mp3         Uh, che freddo!
+pulito-1.mp3          Ora sono un fiore!
+pulito-2.mp3          Profumo come un giardino!
+sonno-1.mp3           Mi calano gli occhi...
+sonno-2.mp3           Buonanotte a tutti...
+sveglia-1.mp3         Già mattina?
+sveglia-2.mp3         Buongiorno! Ho dormito come un ghiro!
+carezze-1.mp3         Ancora, non ti fermare!
+carezze-2.mp3         Grattami la pancia!
+carezze-3.mp3         Ti voglio bene!
+noia-1.mp3            Mi annoio...
+noia-2.mp3            Non c'è niente da fare?
+noia-3.mp3            Giochiamo? Dai, giochiamo!
+triste-1.mp3          Nessuno mi vuole bene...
+triste-2.mp3          Mi sento solo...
+cacca-1.mp3           Non guardare!
+cacca-2.mp3           Un vero capolavoro.
+cacca-3.mp3           Scusate, era urgente.
+caccaOro-1.mp3        Wow! L'ho fatta d'oro!
+scoreggia-1.mp3       Non sono stato io!
+scoreggia-2.mp3       È stato il gatto!
+scoreggia-3.mp3       Questi fagioli, maledetti...
+ufo-1.mp3             Ho visto cose che voi umani non potete capire.
+ufo-2.mp3             Mi hanno portato su Marte e mi hanno dato dei biscotti.
+ufo-3.mp3             Anche lassù parlano la lingua dei cani!
+gatto-1.mp3           Il gatto! Il gatto!
+gatto-2.mp3           Scendi di lì se hai coraggio!
+gattoVia-1.mp3        È scappato! Chi è il più forte?
+ciabatta-1.mp3        La nonna ha una mira che fa paura!
+ciabatta-2.mp3        Mi scusi, signora!
+zoomies-1.mp3         CORRO CORRO CORRO!
+zoomies-2.mp3         Nessuno mi prende!
+zoomies-3.mp3         Largo! Largo!
+livello-1.mp3         Sono cresciuto! Sono più grande!
+livello-2.mp3         Guardate che cane che sono!
+tesoro-1.mp3          Ho trovato un tesoro!
+tesoro-2.mp3          Guarda cosa c'era qua sotto!
+scarpa-1.mp3          Una scarpa vecchia. Uffa.
+spine-1.mp3           Ahi ahi ahi! Le spine!
+spine-2.mp3           Maledetto fico d'India!
+peperoncino-1.mp3     Brucio! Acqua! Acqua!
+granita-1.mp3         Mi si è ghiacciato il cervello!
+abbiocco-1.mp3        Che sonno, dopo mangiato...
+trucco-1.mp3          Guardami, guardami!
+trucco-2.mp3          Sono un artista!
+trucco-3.mp3          E ora l'applauso!
+gabbiano-1.mp3        Ladro! Quello era il mio cibo!
+sogno-1.mp3           ...salsiccia... salsiccia che vola...
+sogno-2.mp3           ...corro... corro...
+sogno-3.mp3           ...mamma, il gatto parla...
+acqua-1.mp3           Ah, che fresco!
+bolle-1.mp3           La scoppio! La scoppio!
+nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
+colpito-1.mp3         Ahia! La ciabatta no!
+coda-1.mp3            Questa volta la prendo, la coda!
+coda-2.mp3            Mi gira la testa...

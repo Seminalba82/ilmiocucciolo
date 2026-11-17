@@ -1,0 +1,40 @@
+IL MIO CUCCIOLO - v1.1
+Un gioco creato da Alberto e Alessandro Seminerio
+
+COSA C'È QUI DENTRO
+- index.html        il gioco completo, in un solo file (grafica 3D, suoni e musica inclusi)
+- vercel.json       configurazione per la pubblicazione (come gli altri giochi)
+- ELENCO-FRASI.txt  tutte le frasi del cucciolo, voce per voce, con il nome del file da registrare
+- voci/             cartella (vuota) dove andranno le voci registrate
+
+COME PUBBLICARLO
+Come gli altri giochi: nuovo repository su GitHub, carichi questi file, lo colleghi a Vercel
+e, se vuoi, aggiungi un sottodominio.
+
+I CUCCIOLI SALVATI
+Si possono salvare fino a 10 cuccioli diversi (ognuno con le sue monete, il suo livello e i suoi accessori).
+Dal titolo: "I MIEI CUCCIOLI" per sceglierne uno o cancellarlo; "NUOVO CUCCIOLO" per adottarne un altro.
+Dopo i 10 bisogna cancellarne uno per adottarne un altro.
+I salvataggi stanno sul telefono/browser di chi gioca.
+
+LA SALA GIOCHI
+Il gioco è pensato per stare nella sala giochi di Ale. Nel file index.html c'è una riga
+    const SALA_URL='';
+Quando la sala giochi ha il suo indirizzo, scrivilo tra gli apici: comparirà in automatico il pulsante
+"Prova anche gli altri giochi" (nella schermata del titolo e nelle impostazioni). Finché è vuoto, il pulsante non si vede.
+(Se preferisci, dimmi l'indirizzo e lo inserisco io.)
+
+LE RAZZE
+Beagle, Carlino, Dogue de Bordeaux, Golden Retriever, Corgi, Bassotto, Barboncino, Bulldog inglese,
+Pastore tedesco, Dalmata, Chihuahua, Husky.
+
+LE VOCI
+Adesso ogni voce (Bimbo, Bimba, Supereroe, Dolce, Brontolone, Nonno saggio) parla con la voce sintetica
+del telefono, con tono e velocità diversi. Quando registri le voci vere:
+1. salva ogni frase come  voci/<voce>/<chiave>-<numero>.mp3   (vedi ELENCO-FRASI.txt)
+2. dimmi quali hai registrato: le attivo io nell'elenco VOCI_REGISTRATE dentro index.html.
+Per aggiungere una voce nuova basta una riga nell'elenco VOCI.
+
+IL SALVATAGGIO
+Il cucciolo resta salvato sul telefono di chi gioca. Fame, pulizia e felicità scendono anche
+mentre il gioco è chiuso (senza mai arrivare a zero).
