@@ -158,6 +158,10 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
 .miniHud .cuori{color:var(--rosso);letter-spacing:2px}
 
 /* ---------- fumetti e scritte */
+#bCam{position:absolute;right:12px;top:calc(118px + var(--st));z-index:5}
+#bCam:active{transform:scale(.92)}
+#flash{position:absolute;inset:0;background:#fff;pointer-events:none;animation:fl .45s ease-out forwards}
+@keyframes fl{0%{opacity:.9}100%{opacity:0}}
 #bubble{position:absolute;left:0;top:0;width:max-content;max-width:min(74vw,300px);background:#fff;border:3px solid var(--ink);border-radius:18px;padding:8px 13px;font-weight:800;font-size:15px;line-height:1.2;text-align:center;box-shadow:0 5px 0 rgba(0,0,0,.2);transform:translate(-50%,-100%);will-change:transform,left,top}
 #bubble::after{content:"";position:absolute;left:50%;bottom:-13px;margin-left:-9px;border:9px solid transparent;border-top:12px solid var(--ink);border-bottom:0}
 #bubble::before{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-6px;border:6px solid transparent;border-top:9px solid #fff;border-bottom:0;z-index:1}
@@ -206,7 +210,7 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
         <button id="bPlay" class="btn big giallo">ADOTTA UN CUCCIOLO</button>
         <a id="salaLink" class="btn rosso sala hid" href="#" target="_blank" rel="noopener">Prova anche gli altri giochi</a>
       </div>
-      <p class="cred">Un gioco creato da <a href="https://albertoseminerio.com" target="_blank" rel="noopener">Alberto</a> e Alessandro Seminerio · v1.1</p>
+      <p class="cred">Un gioco creato da <a href="https://albertoseminerio.com" target="_blank" rel="noopener">Alberto</a> e Alessandro Seminerio · v1.2</p>
     </div>
   </div>
 
@@ -239,6 +243,8 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
   </div>
 
   <div id="floaters"></div>
+  <button class="ic" id="bCam" aria-label="Scatta una foto">📸</button>
+  <div id="flash" class="hid"></div>
   <div id="bubble" class="hid"></div>
   <div id="sheetHost"></div>
   <div id="bannerHost"></div>
@@ -258,7 +264,7 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
    IL MIO CUCCIOLO — creato da Alberto e Alessandro Seminerio
    ============================================================ */
 const T=THREE,PI=Math.PI,TAU=PI*2;
-const VERSION='1.1';
+const VERSION='1.2';
 const rnd=(a,b)=>b===undefined?Math.random()*a:a+Math.random()*(b-a);
 const pick=a=>a[(Math.random()*a.length)|0];
 const clamp=(v,a,b)=>v<a?a:(v>b?b:v);
@@ -290,6 +296,7 @@ function tickTime(dt){
 }
 
 /* ---------- suoni generati dal gioco (nessun file) */
+function isCat(){return !!(S&&BREEDS[S.breed]&&BREEDS[S.breed].cat);}
 const Snd={ctx:null,ok:false,
   init(){if(this.ctx)return;try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const c=this.ctx=new AC();
       this.out=c.createGain();this.out.gain.value=.9;this.out.connect(c.destination);
@@ -309,10 +316,15 @@ const Snd={ctx:null,ok:false,
     if(o.f2)f.frequency.exponentialRampToValueAtTime(o.f2,t0+d);f.Q.value=o.q||1;const g=c.createGain();const v=o.vol||.2;
     g.gain.setValueAtTime(.0001,t0);g.gain.exponentialRampToValueAtTime(v,t0+(o.att||.005));g.gain.exponentialRampToValueAtTime(.0001,t0+d);
     s.connect(f);f.connect(g);g.connect(o.dest||this.out);s.start(t0,Math.random()*.5);s.stop(t0+d+.05);},
-  bark(p,at){p=p||1;at=at||0;this.tone({type:'sawtooth',f:520*p,f2:210*p,dur:.13,vol:.26,lp:2200,at});this.tone({type:'square',f:260*p,f2:120*p,dur:.11,vol:.1,lp:1400,at});this.noise({f:1500*p,dur:.08,vol:.12,q:.8,at});},
-  yip(p){p=p||1;this.tone({type:'sawtooth',f:700*p,f2:1300*p,dur:.09,vol:.2,lp:3000});this.tone({type:'sawtooth',f:1200*p,f2:500*p,dur:.16,vol:.2,lp:3000,at:.09});},
-  whine(p){p=p||1;this.tone({type:'triangle',f:900*p,f2:500*p,dur:.55,vol:.14,vib:9,vibD:35});},
-  howl(p){p=p||1;this.tone({type:'triangle',f:300*p,f2:620*p,dur:.5,vol:.2,lp:1800});this.tone({type:'triangle',f:620*p,f2:520*p,dur:1.1,vol:.2,lp:1800,at:.48,vib:6,vibD:14});},
+  mew(p,at){const q=clamp(p||1,.8,1.5);at=at||0;this.tone({type:'sawtooth',f:620*q,f2:980*q,dur:.17,vol:.12,lp:2400,at});this.tone({type:'sawtooth',f:980*q,f2:560*q,dur:.28,vol:.12,lp:2400,at:at+.16});},
+  purr(dur){if(!this.can())return;const c=this.ctx,t0=c.currentTime,d=dur||.6,s=c.createBufferSource();s.buffer=this.nbuf;s.loop=true;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=170;f.Q.value=.8;
+    const am=c.createGain();am.gain.value=.22;const l=c.createOscillator(),lg=c.createGain();l.frequency.value=25;lg.gain.value=.2;l.connect(lg);lg.connect(am.gain);
+    const env=c.createGain();env.gain.setValueAtTime(.0001,t0);env.gain.exponentialRampToValueAtTime(.9,t0+.12);env.gain.exponentialRampToValueAtTime(.0001,t0+d);s.connect(f);f.connect(am);am.connect(env);env.connect(this.out);s.start(t0,Math.random()*.5);s.stop(t0+d+.05);l.start(t0);l.stop(t0+d+.05);},
+  shutter(){this.noise({f:3400,f2:1400,dur:.05,vol:.22,q:.7});this.tone({type:'square',f:1800,f2:900,dur:.04,vol:.07,at:.045});this.noise({f:2600,f2:900,dur:.07,vol:.16,q:.7,at:.09});},
+  bark(p,at){if(isCat())return this.mew(p,at);p=p||1;at=at||0;this.tone({type:'sawtooth',f:520*p,f2:210*p,dur:.13,vol:.26,lp:2200,at});this.tone({type:'square',f:260*p,f2:120*p,dur:.11,vol:.1,lp:1400,at});this.noise({f:1500*p,dur:.08,vol:.12,q:.8,at});},
+  yip(p){if(isCat())return this.tone({type:'sawtooth',f:1000*clamp(p||1,.8,1.5),f2:1500*clamp(p||1,.8,1.5),dur:.12,vol:.12,lp:3000});p=p||1;this.tone({type:'sawtooth',f:700*p,f2:1300*p,dur:.09,vol:.2,lp:3000});this.tone({type:'sawtooth',f:1200*p,f2:500*p,dur:.16,vol:.2,lp:3000,at:.09});},
+  whine(p){if(isCat())return this.tone({type:'sawtooth',f:800*clamp(p||1,.8,1.5),f2:450*clamp(p||1,.8,1.5),dur:.7,vol:.1,lp:2200,vib:8,vibD:30});p=p||1;this.tone({type:'triangle',f:900*p,f2:500*p,dur:.55,vol:.14,vib:9,vibD:35});},
+  howl(p){if(isCat())return this.tone({type:'sawtooth',f:520*clamp(p||1,.8,1.5),f2:880*clamp(p||1,.8,1.5),dur:1.2,vol:.11,lp:2200,vib:7,vibD:40});p=p||1;this.tone({type:'triangle',f:300*p,f2:620*p,dur:.5,vol:.2,lp:1800});this.tone({type:'triangle',f:620*p,f2:520*p,dur:1.1,vol:.2,lp:1800,at:.48,vib:6,vibD:14});},
   pop(){this.tone({f:520,f2:1500,dur:.07,vol:.2});},
   coin(){this.tone({type:'square',f:988,dur:.07,vol:.1});this.tone({type:'square',f:1319,dur:.22,vol:.1,at:.07});},
   crunch(){this.noise({f:rnd(1800,3200),dur:.06,vol:.2,q:1.5});this.noise({f:700,dur:.05,vol:.12,at:.03});},
@@ -443,9 +455,25 @@ const FRASI={
   coda:{n:["Questa volta la prendo, la coda!","Mi gira la testa..."]}
 };
 
-const NOMI=['Briciola','Pallino','Birba','Macchia','Rocky','Milo','Luna','Nuvola','Fulmine','Biscotto','Pepe','Zampa','Max','Stella','Camilla','Orso','Tigro','Spillo','Fiocco','Cioccolato'];
+const NOMI_X=0;const NOMI=['Briciola','Pallino','Birba','Macchia','Rocky','Milo','Luna','Nuvola','Fulmine','Biscotto','Pepe','Zampa','Max','Stella','Camilla','Orso','Tigro','Spillo','Fiocco','Cioccolato'];
 
 /* --- LE RAZZE --- misure del corpo (il cane è costruito pezzo per pezzo) */
+
+/* Frasi diverse quando il cucciolo è un gatto (le altre chiavi restano uguali a quelle dei cani) */
+const FRASI_GATTO={
+  gioca:{n:["Lancia, lancia! Che la acchiappo!","Zompo, zompo, zompo!","La prendo io! La prendo io!"],rude:["Lancia meglio, scarso!","Questa la prendeva anche mia nonna."]},
+  bagnoNo:{n:["L'acqua no! Miaooo!","Uh, che freddo!"],rude:["Se mi lavi ti graffio!"],dolce:["Piano piano, che ho paura."]},
+  pulito:{n:["Ora sono un fiore!","Che pelo setoso che ho!"],rude:["Sembro un gattino da pubblicità. Che vergogna."]},
+  carezze:{n:["Fusa, fusa, fusa...","Ancora, non ti fermare!","Grattami sotto il mento!"],rude:["Vabbè... continua. Ma non ti ci abituare.","Più a sinistra. No, l'altra sinistra!"],dolce:["Sei il mio cuore!","Rrrr... che bello, mi addormento."]},
+  scoreggia:{n:["Non sono stato io!","È stato il cane!","Quelle crocchette, maledette..."],rude:["Sono stato io. E allora?"]},
+  ufo:{n:["Ho visto cose che voi umani non potete capire.","Mi hanno portato su Marte e mi hanno dato dei bocconcini.","Anche lassù capiscono il miagolio!"]},
+  livello:{n:["Sono cresciuto! Sono più grande!","Guardate che gatto che sono!"]},
+  zoomies:{n:["ZOMPO ZOMPO ZOMPO!","Nessuno mi prende!","Largo! Largo!"]},
+  sporco:{n:["Mi lecco, ma non basta...","Ho il pelo tutto scompigliato!","Mi prude tutto!"],rude:["Puzza? È profumo di gatto vero."]},
+  sogno:{n:["...topolino... topolino che vola...","...salto... salto...","...mamma, il cane parla..."]},
+  triste:{n:["Nessuno mi vuole bene...","Mi sento solo..."],rude:["Bravo. Lasciami solo, tanto."]}
+};
+const NOMI_GATTI=['Micio','Briciola','Camilla','Pantera','Cleo','Tigro','Romeo','Fufi','Nuvola','Pepita','Lilli','Birba','Merlino','Minù','Ginger','Oliver','Zorro','Kiki','Stella','Baffo'];
 const BASE={bodyLen:.6,bodyR:.27,bodyW:1,legLen:.44,legR:.085,neckLen:.24,neckR:.15,headR:.3,snoutLen:.2,snoutR:.12,eyeR:.082,ear:['punta','punta'],earSize:.3,tail:'lunga',tailLen:.5,scale:1,marks:[],pattern:'unita',eye:'#6b3e1c',nose:'#241a1a'};
 const BREEDS={
   beagle:{nome:'Beagle',desc:"Naso fenomenale e orecchie lunghissime: se in casa c'è un biscotto nascosto, lo trova in tre secondi.",
@@ -471,13 +499,27 @@ const BREEDS={
   chihuahua:{nome:'Chihuahua',desc:"Due chili di cane e venti di carattere. Abbaia anche alle nuvole, e le nuvole scappano.",
     bodyLen:.34,bodyR:.19,legLen:.25,legR:.055,neckLen:.13,neckR:.09,headR:.28,snoutLen:.1,snoutR:.08,eyeR:.098,ear:['grande','grande'],earSize:.4,tail:'riccia',tailLen:.3,col1:'#e2b582',col2:'#fff4e4',marks:['petto','muso'],scale:.92},
   husky:{nome:'Husky',desc:"Arrivato dal grande freddo, adora la neve e i gelati. Occhi di ghiaccio e ululato da cantante lirico.",
-    bodyLen:.66,bodyR:.29,legLen:.5,legR:.09,neckLen:.26,neckR:.17,headR:.3,snoutLen:.23,snoutR:.115,ear:['punta','punta'],earSize:.3,tail:'riccia',tailLen:.6,tailFat:1.7,col1:'#7d8794',col2:'#ffffff',marks:['muso','petto','zampe','maschera','codaPunta'],eye:'#59b7ff'}
+    bodyLen:.66,bodyR:.29,legLen:.5,legR:.09,neckLen:.26,neckR:.17,headR:.3,snoutLen:.23,snoutR:.115,ear:['punta','punta'],earSize:.3,tail:'riccia',tailLen:.6,tailFat:1.7,col1:'#7d8794',col2:'#ffffff',marks:['muso','petto','zampe','maschera','codaPunta'],eye:'#59b7ff'},
+  siamese:{nome:'Siamese',cat:true,desc:"Elegante e chiacchierone, con gli occhi azzurri e le zampe scure. Ha una vocina che si sente in tutta la casa.",
+    bodyLen:.6,bodyR:.17,bodyW:.95,legLen:.4,legR:.048,neckLen:.22,neckR:.09,headR:.25,snoutLen:.07,snoutR:.085,eyeR:.075,ear:['punta','punta'],earSize:.3,tail:'gatto',tailLen:.8,tailFat:.8,col1:'#f1e2c6',col2:'#4b362b',marks:['maschera','orecchie','zampe','codaPunta'],eye:'#3aa7ff',nose:'#4b362b'},
+  persiano:{nome:'Persiano',cat:true,desc:"Pelo lunghissimo e musetto schiacciato. Passa le giornate a farsi spazzolare e ti guarda sempre un po' dall'alto in basso.",
+    bodyLen:.5,bodyR:.24,legLen:.26,legR:.07,neckLen:.14,neckR:.14,headR:.31,snoutLen:.035,snoutR:.1,eyeR:.09,ear:['punta','punta'],earSize:.2,tail:'gatto',tailLen:.55,tailFat:1.6,col1:'#e6ddd0',col2:'#ffffff',fluffy:true,marks:[],eye:'#e08a2b',nose:'#e89aa3'},
+  sphynx:{nome:'Sphynx (senza pelo)',cat:true,skin:true,desc:"Il gatto senza pelo! Ha la pelle morbida come una pesca, orecchie enormi e adora stare sotto le coperte.",
+    bodyLen:.55,bodyR:.19,legLen:.4,legR:.05,neckLen:.2,neckR:.09,headR:.25,snoutLen:.08,snoutR:.08,eyeR:.08,ear:['grande','grande'],earSize:.34,tail:'gatto',tailLen:.85,tailFat:.55,col1:'#e9b6a0',col2:'#d99a86',marks:['sopracciglia'],eye:'#8bd45a',nose:'#e07f8e'},
+  soriano:{nome:'Europeo tigrato',cat:true,desc:"Il classico gatto di casa, con le strisce da tigre. Curioso, furbo e sempre pronto a combinarne una.",
+    bodyLen:.6,bodyR:.2,legLen:.4,legR:.055,neckLen:.2,neckR:.1,headR:.26,snoutLen:.08,snoutR:.09,eyeR:.078,ear:['punta','punta'],earSize:.26,tail:'gatto',tailLen:.75,tailFat:.9,col1:'#a89070',col2:'#4a3a28',pattern:'tigrato',marks:['codaPunta'],eye:'#e0b422',nose:'#d98a95'},
+  maine:{nome:'Maine Coon',cat:true,desc:"Il gigante dei gatti: grosso, peloso e dolcissimo, con una coda che sembra un piumino.",
+    bodyLen:.8,bodyR:.25,legLen:.42,legR:.07,neckLen:.2,neckR:.14,headR:.3,snoutLen:.12,snoutR:.11,eyeR:.08,ear:['punta','punta'],earSize:.34,tail:'gatto',tailLen:.85,tailFat:1.15,col1:'#8d6b47',col2:'#e8d9bf',pattern:'tigrato',fluffy:true,marks:['petto'],eye:'#2e7d4f',nose:'#d98a95',scale:1.08},
+  british:{nome:'British Shorthair',cat:true,desc:"Tondo, morbido e un po' pigro: sembra un peluche con gli occhi arancioni.",
+    bodyLen:.5,bodyR:.27,bodyW:1.1,legLen:.28,legR:.08,neckLen:.1,neckR:.16,headR:.32,snoutLen:.05,snoutR:.11,eyeR:.09,ear:['punta','punta'],earSize:.17,tail:'gatto',tailLen:.55,tailFat:1.3,col1:'#8c95a3',col2:'#b4bcc8',marks:[],eye:'#e08a2b',nose:'#d9a0aa'}
 };
 for(const k in BREEDS){BREEDS[k]=Object.assign({},BASE,BREEDS[k]);BREEDS[k].id=k;}
-const BREED_ORDER=['beagle','carlino','dogue','golden','corgi','bassotto','barboncino','bulldog','pastore','dalmata','chihuahua','husky'];
+const DOG_ORDER=['beagle','carlino','dogue','golden','corgi','bassotto','barboncino','bulldog','pastore','dalmata','chihuahua','husky'];
+const CAT_ORDER=['siamese','persiano','sphynx','soriano','maine','british'];
+const BREED_ORDER=DOG_ORDER.concat(CAT_ORDER);
 
 const PELI=['#c8792f','#7a4424','#3a2a20','#17141a','#e6c9a0','#fff7ee','#b98a5a','#8a8f98','#d9a441','#a8482a','#f6b6c8','#7fc8f8','#9be28a','#b28dff'];
-const OCCHI=['#6b3e1c','#a8641e','#2e7d4f','#59b7ff','#7a52d6','#151214'];
+const OCCHI=['#6b3e1c','#a8641e','#2e7d4f','#59b7ff','#7a52d6','#151214','#e0b422','#8bd45a'];
 const COLLARI=['#d51f2a','#1657b8','#ffc72c','#2f9d6b','#ff7ab8','#7a3fd6','#151214','#ffffff'];
 const DISEGNI=[['unita','Tinta unita'],['macchie','A macchie'],['pezzato','Pezzato'],['tigrato','Tigrato']];
 
@@ -553,7 +595,7 @@ function buildDog(c){
   const B=BREEDS[c.breed],has=m=>B.marks.indexOf(m)>=0;
   const c1=c.col1||B.col1,c2=c.col2||B.col2,pat=c.pattern||B.pattern;
   const tex=furTex(c1,c2,pat,c.seed);
-  const fur1=M(c1,{roughness:.85}),furP=tex?new T.MeshStandardMaterial({map:tex,roughness:.85}):fur1;
+  const fRo=B.skin?.5:.85,fur1=M(c1,{roughness:fRo}),furP=tex?new T.MeshStandardMaterial({map:tex,roughness:fRo}):fur1;
   const fur2=M(c2,{roughness:.85}),furD=M(shade(c1,-.3),{roughness:.85});
   const noseM=M(B.nose,{roughness:.28}),whiteM=M('#ffffff',{roughness:.18}),irisM=M(c.eye||B.eye,{roughness:.25}),blackM=M('#0e0a0a',{roughness:.2});
   const pinkM=M('#ff6f91',{roughness:.5}),inEarM=M('#f4b0a6'),mouthM=M('#5e1424'),glintM=new T.MeshBasicMaterial({color:0xffffff});
@@ -592,7 +634,7 @@ function buildDog(c){
   const H=B.headR;
   const skull=mk(gS(H,26,20),furP,head);skull.scale.set(1.05,.96,1);
   if(has('maschera')){const m=mk(gS(H*.84,18,14),fur2,head,0,-H*.2,H*.24);m.scale.set(1.08,.86,1);}
-  if(B.fluffy){mk(gS(H*.62,12,10),fur1,head,0,H*.72,-H*.05);mk(gS(H*.4,10,8),fur1,head,H*.4,H*.6,H*.1);mk(gS(H*.4,10,8),fur1,head,-H*.4,H*.6,H*.1);}
+  if(B.fluffy&&!B.cat){mk(gS(H*.62,12,10),fur1,head,0,H*.72,-H*.05);mk(gS(H*.4,10,8),fur1,head,H*.4,H*.6,H*.1);mk(gS(H*.4,10,8),fur1,head,-H*.4,H*.6,H*.1);}
   /* muso */
   const muz=new T.Group();muz.position.set(0,-H*.24,H*.7);head.add(muz);d.muz=muz;
   const sr=B.snoutR,sl=B.snoutLen,muzM=has('muso')?fur2:fur1;
@@ -603,6 +645,8 @@ function buildDog(c){
   const lo=mk(gC(sr*.72,sl*.85,5,12),muzM,jaw,0,-sr*.14,sl*.45);lo.rotation.x=PI/2;lo.scale.set(1.08,1,.6);
   const tongue=mk(gS(sr*.5,10,8),pinkM,jaw,0,sr*.14,sl*.62);tongue.scale.set(.9,.25,1.5);d.tongue=tongue;
   if(B.jowls){for(const s of[-1,1]){const j=mk(gS(sr*.82,12,10),fur2,muz,s*sr*.72,-sr*.5,sl*.5+sr*.5);j.scale.set(.9,1.05,1);}}
+  if(B.cat){for(const s of[-1,1]){const ck=mk(gS(sr*1.05,12,10),fur1,muz,s*sr*.85,-sr*.15,sl*.35+sr*.3);ck.scale.set(1,.85,1);
+    for(let k=-1;k<=1;k++){const w=mk(gY(.004,.004,sr*2.8,4),whiteM,muz,s*sr*1.15,sr*.05+k*sr*.22,sl+sr*.1);w.rotation.z=PI/2;w.rotation.y=s*.25+k*.28*s;w.castShadow=false;}}}
   d.muzAcc=new T.Group();d.muzAcc.position.set(0,-sr*.1,sl+sr*.55);muz.add(d.muzAcc);
   /* occhi */
   const er=B.eyeR,ex=H*.4,ey=H*.13,ez=H*.8;d.eyes=[];d.iris=[];d.brows=[];
@@ -612,7 +656,7 @@ function buildDog(c){
     mk(gS(er,16,12),whiteM,e).scale.set(1,1.1,.72);
     const ir=new T.Group();e.add(ir);
     mk(gS(er*.74,14,10),irisM,ir,0,0,er*.36).scale.set(1,1,.5);
-    mk(gS(er*.44,12,8),blackM,ir,0,0,er*.56).scale.set(1,1,.5);
+    mk(gS(er*.44,12,8),blackM,ir,0,0,er*.56).scale.set(B.cat?.38:1,B.cat?1.15:1,.5);
     mk(gS(er*.17,8,6),glintM,ir,er*.22,er*.26,er*.76).castShadow=false;
     d.eyes.push(e);d.iris.push(ir);
     const b=mk(gC(er*.17,er*.95,3,8),has('sopracciglia')?fur2:furD,head,s*ex,ey+er*1.5,ez+er*.05);b.rotation.z=PI/2;d.brows.push(b);
@@ -636,7 +680,7 @@ function buildDog(c){
 
   /* coda */
   const tr=new T.Group();tr.position.set(0,R*.42,-(L/2+R*.7));body.add(tr);d.tailRoot=tr;d.tail=[];
-  const TT={lunga:{n:5,base:-1.0,curl:.12,r:.19,tap:.42},riccia:{n:5,base:-.35,curl:.62,r:.2,tap:.6},corta:{n:2,base:-.9,curl:.2,r:.26,tap:.7},folta:{n:4,base:-2.0,curl:.12,r:.34,tap:.5},pompon:{n:2,base:-.6,curl:.1,r:.14,tap:.9}}[B.tail];
+  const TT={lunga:{n:5,base:-1.0,curl:.12,r:.19,tap:.42},riccia:{n:5,base:-.35,curl:.62,r:.2,tap:.6},corta:{n:2,base:-.9,curl:.2,r:.26,tap:.7},folta:{n:4,base:-2.0,curl:.12,r:.34,tap:.5},pompon:{n:2,base:-.6,curl:.1,r:.14,tap:.9},gatto:{n:6,base:-1.1,curl:.24,r:.2,tap:.7}}[B.tail];
   d.tailBase=TT.base;tr.rotation.x=TT.base;let par=tr;const seg=B.tailLen/TT.n,fat=B.tailFat||1;
   for(let i=0;i<TT.n;i++){const g=new T.Group();g.position.y=i?seg:0;g.rotation.x=i?TT.curl:0;par.add(g);
     const rr=R*TT.r*fat*lerp(1,TT.tap,i/(TT.n-1||1));mk(gC(rr,seg,4,10),(has('codaPunta')&&i>=TT.n-2)?fur2:fur1,g,0,seg/2,0);
@@ -773,6 +817,9 @@ function dogUpdate(d,dt,t){
   const h=d.mood;
   if(P.wagAmp<0){P.wagAmp=lerp(.03,.5,h);P.wagSpd=lerp(3,12,h);}
   if(d.petT>0){d.petT-=dt;P.eye=Math.min(P.eye,.13);P.wagAmp=.7;P.wagSpd=17;P.tongue=Math.max(P.tongue,.6);P.jaw=Math.max(P.jaw,.22);P.headRZ+=Math.sin(t*6)*.1;}
+  if(d.B.cat){P.wagAmp*=.4;P.wagSpd*=.5;P.tongue=Math.min(P.tongue,.15);
+    if(d.petT>0){P.tongue=0;P.jaw=0;P.bodyRZ+=Math.sin(t*50)*.012;P.bodyRX+=Math.sin(t*47)*.008;P.tailUp=Math.max(P.tailUp,.9);}
+    else if(an==='happy'||an==='jump')P.tailUp=Math.max(P.tailUp,.7);}
   if(h<.3&&P.brow===0){P.brow=-.9*(1-h/.3);P.earX=Math.max(P.earX,.5*(1-h/.3));}
   d.blinkT-=dt;if(d.blinkT<0){d.blinkT=rnd(1.8,4.6);d.blink=.13;}if(d.blink>0){d.blink-=dt;P.eye=Math.min(P.eye,.08);}
   if(d.look&&an!=='sleep'&&an!=='dead'&&an!=='belly'){const dx=d.look.x-d.pos.x,dz=d.look.z-d.pos.z,yaw=clamp(angDiff(d.heading,Math.atan2(dx,dz)),-1.15,1.15),pit=clamp(-Math.atan2(d.look.y-d.headY,Math.hypot(dx,dz)),-.6,.5);P.headRY+=yaw*.8;P.headRX+=pit*.6;}
@@ -936,11 +983,14 @@ function buildWorld(){
   const landM=M('#b6a257',{roughness:1});const land=new T.Mesh(new T.PlaneGeometry(500,62),landM);land.rotation.x=-PI/2;land.position.set(0,-2.2,-34);s.add(land);
   WORLD.seaM=new T.MeshStandardMaterial({color:col('#1f7fd0'),roughness:.25,metalness:.1});const sea=new T.Mesh(new T.PlaneGeometry(900,400),WORLD.seaM);sea.rotation.x=-PI/2;sea.position.set(0,-2.45,-264);s.add(sea);
   const hillM=M('#a99a4e',{roughness:1}),hillM2=M('#8f9a55',{roughness:1});
-  for(const[x,z,sx,sy,sz,m]of[[8.8,-46,7.5,6.1,5.5,hillM],[24,-52,11,3.6,6,hillM2],[-22,-50,14,5,6,hillM2],[40,-58,12,5.4,7,hillM],[-2,-56,9,3.2,5,hillM]]){const h=new T.Mesh(gS(1,20,12),m);h.scale.set(sx,sy,sz);h.position.set(x,-2.2,z);s.add(h);}
+  for(const[x,z,sx,sy,sz,m]of[[8.8,-46,13.5,5.8,8.5,hillM],[24,-52,11,3.6,6,hillM2],[-22,-50,14,5,6,hillM2],[40,-58,12,5.4,7,hillM],[-2,-56,9,3.2,5,hillM]]){const h=new T.Mesh(gS(1,20,12),m);h.scale.set(sx,sy,sz);h.position.set(x,-2.2,z);s.add(h);}
   {const R=mulberry(33),o=new T.Object3D(),n=60,im=new T.InstancedMesh(gS(1,7,5),M('#6f8a4a',{roughness:1}),n),im2=new T.InstancedMesh(gS(1,7,5),M('#f7c9d8',{roughness:1}),26);
     for(let i=0;i<n;i++){o.position.set(R()*70-25,-1.7,-8-R()*30);const k=.5+R()*.7;o.scale.set(k,k*.8,k);o.updateMatrix();im.setMatrixAt(i,o.matrix);}s.add(im);
     for(let i=0;i<26;i++){o.position.set(R()*50-8,-1.6,-9-R()*24);const k=.5+R()*.5;o.scale.set(k,k*.8,k);o.updateMatrix();im2.setMatrixAt(i,o.matrix);}s.add(im2);
     const cy=new T.InstancedMesh(gK(.45,2.6,7),M('#2f5a36',{roughness:1}),14);for(let i=0;i<14;i++){o.position.set(R()*44-6,-.9,-12-R()*26);o.scale.setScalar(.8+R()*.6);o.updateMatrix();cy.setMatrixAt(i,o.matrix);}s.add(cy);}
+  /* terrazza di terra battuta sotto il tempio: il tempio poggia sul terreno, non sulla punta della collina */
+  {const pl=new T.Mesh(gY(6.4,9.2,1.7,28),hillM);pl.position.set(8.8,2.9,-46);pl.scale.z=.78;s.add(pl);
+   const pl2=new T.Mesh(gY(6.3,6.3,.12,28),M('#c9b66a',{roughness:1}));pl2.position.set(8.8,3.72,-46);pl2.scale.z=.78;s.add(pl2);}
   /* tempio */
   {const g=new T.Group();g.position.set(8.8,3.75,-46);g.rotation.y=-.3;g.scale.setScalar(1.5);s.add(g);WORLD.templeM=new T.MeshStandardMaterial({color:col('#dfa55c'),emissive:col('#ff9a3c'),emissiveIntensity:0,roughness:.95});const tm=WORLD.templeM;
     const b2=(w,h,d,x,y,z)=>{const m=new T.Mesh(gB(w,h,d),tm);m.position.set(x,y,z);g.add(m);return m;};
@@ -1122,8 +1172,8 @@ function levelUp(){const tr=TRICKS.find(t=>t.lv===S.lv);banner('LIVELLO '+S.lv+'
   wait(1.6).then(()=>{if(!G.lock&&!G.sleeping)say('livello');});}
 function addCoins(n,pos){S.coins+=n;Snd.coin();if(pos)floatText('+'+n+' <i class="pc"></i>',pos,'buono');}
 
-function say(key,o){o=o||{};const v=voce(),set=FRASI[key];if(!set)return;const list=set[v.tono]||set.n,i=(Math.random()*list.length)|0,text=list[i].replace('{nome}',S.name||'il cucciolo');
-  showBubble(text,key==='sogno'?'sogno':'',o.dur);if(!o.nobark)Snd.bark(v.abbaio);Voce.say(text,v,key+'-'+(i+1));}
+function say(key,o){o=o||{};const v=voce(),gk=isCat()&&FRASI_GATTO[key],set=gk||FRASI[key];if(!set)return;const list=set[v.tono]||set.n,i=(Math.random()*list.length)|0,text=list[i].replace('{nome}',S.name||'il cucciolo');
+  showBubble(text,key==='sogno'?'sogno':'',o.dur);if(!o.nobark)Snd.bark(v.abbaio);Voce.say(text,v,(gk?'gatto-':'')+key+'-'+(i+1));}
 
 /* ---------- sequenze: ogni azione prende un numero, se ne parte un'altra la vecchia si ferma */
 function stopMove(v){const d=DOG;if(!d)return;const r=d.moveRes;d.moveRes=null;d.target=null;if(r)r(!!v);}
@@ -1261,9 +1311,24 @@ async function actTrick(tid){const tr=TRICKS.find(x=>x.id===tid);if(S.lv<tr.lv){
   await wait(1.1);if(!ok(id))return;end(id);if(tid==='canta'&&Math.random()<.65)evNonna();}
 
 /* ============================================================ CAREZZE E TOCCHI */
-function petDog(px){const d=DOG;if(G.lock||G.mode||G.screen!=='game')return;d.petT=.45;G.pet+=px;addSt('gioia',px*.004);G.petFx+=px;
+function petDog(px){const d=DOG;if(G.lock||G.mode||G.screen!=='game'||G.scamp)return;d.petT=.45;G.pet+=px;addSt('gioia',px*.004);G.petFx+=px;
+  if(d.B.cat){/* il gatto fa le fusa */
+    if(!G.sleeping&&G.t>(G.purrNext||0)){G.purrNext=G.t+.55;Snd.purr(.65);}
+    if(G.petFx>34){G.petFx=0;fx('cuore',dogPoint(d,'sopra'),1,{spread:.3,up:.9});}
+    if(G.pet>320&&!G.sleeping&&G.t>(G.trickCd.fusa||0)){G.trickCd.fusa=G.t+14;G.pet=0;say('carezze',{nobark:true});addXp(2);}
+    return;}
+  G.petRun=(G.petRun||0)+px;
   if(G.petFx>55){G.petFx=0;fx('cuore',dogPoint(d,'sopra'),1,{spread:.35,up:.9});if(Math.random()<.12)Snd.yip(voce().abbaio);}
-  if(G.sleeping)return;if(G.pet>620&&!G.belly)bellyRub();}
+  if(G.sleeping)return;
+  if(G.pet>620&&!G.belly){bellyRub();return;}
+  if(G.petRun>260&&G.t>(G.trickCd.scamp||0)&&!G.belly)scamper();}
+/* il cane, tutto contento per le carezze, scorrazza per il giardino lasciando una scia di cuoricini */
+async function scamper(){const id=begin(),d=DOG;G.scamp=true;G.petRun=0;G.trickCd.scamp=G.t+20;Snd.yip(voce().abbaio);let run=true;
+  (async()=>{while(run&&ok(id)){fx('cuore',dogPoint(d,'sopra'),1,{spread:.35,up:.9});await wait(.2);}})();
+  try{const n=3+((Math.random()*2)|0);for(let i=0;i<n;i++){await goTo(rnd(-2.4,2.4),rnd(-1.3,1.8),{run:true});if(!ok(id))return;if(i===1){dogJump(d,3.2);Snd.yip(voce().abbaio);}}
+    run=false;setAnim(d,'happy');d.petT=1.2;say('carezze');await faceTo(.3,.3);await wait(1.3);}
+  finally{run=false;G.scamp=false;}
+  if(ok(id)){addSt('gioia',8);addXp(3);end(id);}}
 async function bellyRub(){G.belly=true;const id=begin(),d=DOG;setAnim(d,'belly');say('carezze');addXp(4);await wait(3.4);G.belly=false;G.pet=0;if(!ok(id))return;
   if(G.t>(G.trickCd.belly||0)){G.trickCd.belly=G.t+60;addCoins(3,dogPoint(d,'sopra'));}end(id);}
 function pokeDog(){const d=DOG,v=voce();
@@ -1276,7 +1341,7 @@ function cleanPoop(i){const m=WORLD.poops.children[i],p=S.poops[i];if(!m||!p)ret
 function addPoop(x,z,gold,isNew){const m=makePoop(gold);m.position.set(x,0,z);WORLD.poops.add(m);if(isNew){S.poops.push({x,z,gold:!!gold});m.scale.setScalar(.01);tween(.3,k=>m.scale.setScalar(Math.max(.01,k)),ease.back);}}
 
 /* ============================================================ EVENTI STRANI */
-const EVS=[['gatto',()=>true],['scavo',()=>true],['coda',()=>true],['spine',()=>true],['ufo',()=>WORLD.night>.5||S.seen.length>=3||Math.random()<.3],['zoom',()=>S.st.energia>45&&S.st.gioia>40]];
+const EVS=[['gatto',()=>!DOG.B.cat],['scavo',()=>true],['coda',()=>true],['spine',()=>true],['ufo',()=>WORLD.night>.5||S.seen.length>=3||Math.random()<.3],['zoom',()=>S.st.energia>45&&S.st.gioia>40]];
 const EVF={gatto:()=>evCat(),scavo:()=>evDig(),coda:()=>evTail(),spine:()=>evSpine(),ufo:()=>evUfo(),zoom:()=>zoomies()};
 const isFree=()=>!G.lock&&!G.busy&&!G.mode&&!G.sleeping&&G.screen==='game'&&!UI.sheetOpen&&!UI.modalOpen&&DOG.y<=0;
 function tryEvent(){if(!isFree())return false;const cand=EVS.filter(e=>e[1]()),fresh=cand.filter(e=>S.seen.indexOf(e[0])<0),e=pick(fresh.length?fresh:cand);if(S.seen.indexOf(e[0])<0)S.seen.push(e[0]);EVF[e[0]]();return true;}
@@ -1317,7 +1382,7 @@ async function zoomies(){if(G.lock||G.sleeping||G.screen!=='game')return;const i
   banner('CORRI CORRI CORRI!!!','Acchiappalo se ci riesci!');say('zoomies');Music.tempo=1.5;Snd.yip(voce().abbaio);
   const pts=[[-2.6,1.6],[2.6,-1.4],[2.6,1.6],[-2.6,-1.4],[-2.6,1.7],[0,-1.6],[2.6,1.7],[-2.4,1.9],[2.4,1.9],[0,.9]];
   for(const p of pts){const pr=goTo(p[0],p[1],{run:true,speed:8.5,r:.55});(async()=>{while(d.target&&G.zoom){fx('polvere',{x:d.pos.x,y:.15,z:d.pos.z},1,{color:'#e8d5b0',size:.9,spread:.1});await wait(.07);}})();await pr;}
-  G.zoom=false;Music.tempo=1;d.pant=4.5;setAnim(d,'idle');addSt('energia',-12);addSt('gioia',15);addXp(8);await faceTo(camHeading(),.3);await wait(1.4);end(id);}
+  G.zoom=false;Music.tempo=1;d.pant=4.5;setAnim(d,'idle');addSt('energia',-12);addSt('gioia',15);addXp(8);await faceTo(.3,.3);await wait(1.4);end(id);}
 
 async function evDig(){const id=begin(),d=DOG;if(!(await goTo(rnd(-2.4,2.4),rnd(-1.6,-.5),{}))||!ok(id))return;setAnim(d,'sniff');await wait(1.1);if(!ok(id))return;setAnim(d,'dig');
   const fwd=()=>new T.Vector3(d.pos.x+Math.sin(d.heading)*.85,.15,d.pos.z+Math.cos(d.heading)*.85);
@@ -1516,7 +1581,8 @@ function crDraw(){
   const tb=$('#crTabs');tb.innerHTML='';TABS.forEach(t=>{const b=el('button','tab'+(UI.tab===t[0]?' on':''),t[1]);b.onclick=()=>{Snd.wake();UI.tab=t[0];crDraw();};tb.appendChild(b);});
   const bd=$('#crBody');bd.innerHTML='';const B=BREEDS[S.breed];
   const sws=(list,cur,fn)=>{const r=el('div','row');list.forEach(c=>{const s=el('button','sw'+(cur===c?' on':''));s.style.background=c;s.onclick=()=>{Snd.wake();Snd.pop();fn(c);crRefresh();crDraw();};r.appendChild(s);});return r;};
-  if(UI.tab==='razza'){const g=el('div','razze');BREED_ORDER.forEach(id=>{const b=BREEDS[id],c=el('button','rz'+(S.breed===id?' on':''),'<i><u style="background:'+b.col1+'"></u><u style="background:'+b.col2+'"></u></i><b>'+b.nome+'</b>');
+  if(UI.tab==='razza'){const sp=el('div','row');[['cane','🐶 Cani',DOG_ORDER],['gatto','🐱 Gatti',CAT_ORDER]].forEach(x=>{const on=(!!B.cat)===(x[0]==='gatto'),c=el('button','chip'+(on?' on':''),x[1]);c.onclick=()=>{if(on)return;Snd.wake();S.breed=x[2][0];S.col1=S.col2=S.pattern=S.eye=null;crRefresh(true);Snd.bark(1);crDraw();};sp.appendChild(c);});bd.appendChild(sp);
+    const g=el('div','razze');(B.cat?CAT_ORDER:DOG_ORDER).forEach(id=>{const b=BREEDS[id],c=el('button','rz'+(S.breed===id?' on':''),'<i><u style="background:'+b.col1+'"></u><u style="background:'+b.col2+'"></u></i><b>'+b.nome+'</b>');
       c.onclick=()=>{Snd.wake();S.breed=id;S.col1=S.col2=S.pattern=S.eye=null;crRefresh(true);Snd.bark(voce().abbaio*(b.legLen<.3?1.25:b.scale>1?.8:1));crDraw();};g.appendChild(c);});bd.appendChild(g);bd.appendChild(el('div','rzDesc','<b>'+B.nome+'.</b> '+B.desc));}
   else if(UI.tab==='colori'){bd.appendChild(el('div','lab','PELO'));bd.appendChild(sws(PELI,S.col1||B.col1,c=>S.col1=c));bd.appendChild(el('div','lab','SECONDO COLORE'));bd.appendChild(sws(PELI,S.col2||B.col2,c=>S.col2=c));
     bd.appendChild(el('div','lab','DISEGNO'));const r=el('div','row');DISEGNI.forEach(d=>{const c=el('button','chip'+((S.pattern||B.pattern)===d[0]?' on':''),d[1]);c.onclick=()=>{Snd.pop();S.pattern=d[0];crRefresh();crDraw();};r.appendChild(c);});bd.appendChild(r);
@@ -1526,7 +1592,7 @@ function crDraw(){
     bd.appendChild(el('div','note','Berretto, occhiali da sole, baffoni, cappello di feltro, corona… li trovi nel negozio, giocando.'));}
   else if(UI.tab==='voce'){bd.appendChild(el('div','note','Come parla il tuo cucciolo? Tocca per sentire. La puoi cambiare quando vuoi dalle impostazioni.'));bd.appendChild(voiceGrid(crDraw));}
   else{bd.appendChild(el('div','lab','COME SI CHIAMA?'));const i=el('input','nome');i.type='text';i.maxLength=14;i.placeholder='Scrivi il nome';i.value=S.name;i.autocomplete='off';i.id='crName';i.oninput=()=>{S.name=i.value.trim().slice(0,14);i.classList.remove('err');};bd.appendChild(i);
-    const r=el('div','row');r.style.justifyContent='center';const b=el('button','btn mini','🎲 Nome a caso');b.onclick=()=>{Snd.pop();S.name=pick(NOMI);i.value=S.name;i.classList.remove('err');};r.appendChild(b);bd.appendChild(r);}
+    const r=el('div','row');r.style.justifyContent='center';const b=el('button','btn mini','🎲 Nome a caso');b.onclick=()=>{Snd.pop();S.name=pick(BREEDS[S.breed].cat?NOMI_GATTI:NOMI);i.value=S.name;i.classList.remove('err');};r.appendChild(b);bd.appendChild(r);}
 }
 function toCreator(){G.screen='creator';G.demo=false;G.seq++;stopMove(false);G.busy=true;G.lock=false;G.mode=null;G.focus=null;closeSheet();show('#title',false);show('#hud',false);show('#creator',true);
   if(G.sleeping){G.sleeping=false;showWake(false);}clearGroup(WORLD.poops);clearGroup(WORLD.food);UI.tab='razza';spawnDog(dogCfg(),false);DOG.pos.set(0,0,0);DOG.heading=.55;setAnim(DOG,'idle');DOG.look=null;setPlate(S.name);crDraw();}
@@ -1587,7 +1653,7 @@ function tap(x,y){
     goTo(g.x,g.z,{run:Math.hypot(g.x-d.pos.x,g.z-d.pos.z)>2.2}).then(v=>{if(v&&ok(id)){faceTo(camHeading(),.2);d.look=camLook();setAnim(d,'sit');G.idleT=3.5;}});}
 }
 
-function uiInit(){
+function uiInit(){$('#bCam').onclick=()=>{snapshot();};
   try{document.documentElement.style.setProperty('--maj','url('+WORLD.majCanvas.toDataURL()+')');}catch(e){}
   hudBuild();titleDraw();{const a=$('#salaLink');if(SALA_URL){a.href=SALA_URL;a.classList.remove('hid');}}
   $('#bPlay').onclick=()=>{Snd.wake();Music.start();newPup();};$('#bList').onclick=()=>{Snd.wake();Music.start();sheetPups();};
@@ -1603,13 +1669,25 @@ function uiFrame(dt){
   else if(!b.classList.contains('hid'))b.classList.add('hid');
 }
 
+/* ---------- fotocamera: istantanea in qualsiasi momento */
+async function snapshot(){
+  try{REN.render(WORLD.scene,CAMERA);const src=REN.domElement,w=src.width,h=src.height,cv=document.createElement('canvas');cv.width=w;cv.height=h;const x=cv.getContext('2d');x.drawImage(src,0,0);
+    const fs=Math.round(Math.min(w,h)*.04);x.font='900 '+fs+'px Bungee, Arial Black, sans-serif';x.textAlign='right';x.lineJoin='round';x.lineWidth=fs*.28;x.strokeStyle='rgba(30,15,10,.85)';x.fillStyle='#fff';
+    const tx='IL MIO CUCCIOLO'+(S.adopted&&S.name?' · '+S.name:''),px=w-fs*.7,py=h-fs*.7;x.strokeText(tx,px,py);x.fillText(tx,px,py);
+    const f=$('#flash');f.classList.remove('hid');f.style.animation='none';void f.offsetWidth;f.style.animation='';setTimeout(()=>f.classList.add('hid'),500);Snd.shutter();
+    const blob=await new Promise(r=>cv.toBlob(r,'image/png'));if(!blob)throw 0;
+    const nm='il-mio-cucciolo-'+(S.name||'foto').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.png',file=new File([blob],nm,{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Il mio cucciolo'});return;}catch(e){if(e&&e.name==='AbortError')return;}}
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nm;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);toast('📸 Foto salvata!');
+  }catch(e){toast('Non riesco a scattare la foto, riprova!');}}
+
 /* ============================================================
    AVVIO, CAMERA, CICLO PRINCIPALE
    ============================================================ */
 const CAM={p:new T.Vector3(0,3.2,9),l:new T.Vector3(0,1.1,0),fov:56,sh:0,first:true};
 const _tp=new T.Vector3(),_tl=new T.Vector3();
 function camShake(a){CAM.sh=Math.max(CAM.sh,a);}
-function camUpdate(dt){
+function camUpdate(dt){if(window.__freeCam)return;
   const asp=innerWidth/innerHeight,por=asp<1,d=DOG;let fov=por?clamp(2*Math.atan(.2556/asp)*180/PI,34,64):40;
   if(G.screen==='creator'){if(por){_tp.set(0,1.9,7.3);_tl.set(0,-.78,0);fov=clamp(fov-8,30,52);}else{_tp.set(1.9,1.7,5.6);_tl.set(1.9,.85,0);fov=36;}}
   else if(G.mini){_tp.set(0,3.4,por?10.2:10.5);_tl.set(0,2.4,0);fov=por?Math.min(66,fov+6):46;}
@@ -1643,7 +1721,7 @@ function main(){
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>setPlate(S.adopted?S.name:''));
   applySky(hourNow(),0);camUpdate(.016);requestAnimationFrame(t=>{_last=t;requestAnimationFrame(loop);});
   /* porticina per le prove */
-  window.__ccc={get S(){return S;},get G(){return G;},get DOG(){return DOG;},WORLD,ev:EVF,nonna:()=>evNonna(),poop:()=>evPoop(),fart:()=>evFart(),say,setAnim:(a)=>setAnim(DOG,a),gull:()=>gullSteal(),step:async(sec)=>{_skip=true;const n=Math.round(sec*30);for(let i=0;i<n;i++){sim(1/30);await new Promise(r=>setTimeout(r,0));}_skip=false;}};
+  window.__ccc={get S(){return S;},get G(){return G;},get DOG(){return DOG;},get CAM(){return CAMERA;},WORLD,ev:EVF,nonna:()=>evNonna(),poop:()=>evPoop(),fart:()=>evFart(),say,setAnim:(a)=>setAnim(DOG,a),gull:()=>gullSteal(),step:async(sec)=>{_skip=true;const n=Math.round(sec*30);for(let i=0;i<n;i++){sim(1/30);await new Promise(r=>setTimeout(r,0));}_skip=false;}};
 }
 main();
 
