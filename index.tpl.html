@@ -162,6 +162,15 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
 #bCam:active{transform:scale(.92)}
 #flash{position:absolute;inset:0;background:#fff;pointer-events:none;animation:fl .45s ease-out forwards}
 @keyframes fl{0%{opacity:.9}100%{opacity:0}}
+#garden{position:absolute;inset:0;pointer-events:none}
+#gExit{position:absolute;left:12px;top:calc(14px + var(--st))}
+#gGames{position:absolute;left:12px;top:calc(62px + var(--st))}
+#gScore{position:absolute;left:50%;top:calc(14px + var(--st));transform:translateX(-50%);background:rgba(42,26,18,.88);color:#fff;font-family:'Bungee',system-ui,sans-serif;font-size:14px;padding:8px 16px;border-radius:20px;white-space:nowrap;max-width:62vw;overflow:hidden;text-overflow:ellipsis}
+.gTag.it{background:#ffd23f}.gTag.tA{background:#9fd0ff}.gTag.tB{background:#ffb3b3}
+#gHint{position:absolute;left:50%;bottom:calc(26px + var(--sb));transform:translateX(-50%);background:rgba(42,26,18,.85);color:#fff;font-weight:800;font-size:13px;padding:8px 14px;border-radius:20px;white-space:nowrap;animation:gh 7s ease-out forwards}
+@keyframes gh{0%,80%{opacity:1}100%{opacity:0}}
+#gTags{position:absolute;inset:0;pointer-events:none}
+.gTag{position:absolute;transform:translate(-50%,-100%);background:#fff;border:2.5px solid var(--ink);border-radius:12px;padding:2px 8px;font-family:'Bungee',system-ui,sans-serif;font-size:11px;color:var(--ink);white-space:nowrap;box-shadow:0 3px 0 rgba(0,0,0,.25)}
 #bubble{position:absolute;left:0;top:0;width:max-content;max-width:min(74vw,300px);background:#fff;border:3px solid var(--ink);border-radius:18px;padding:8px 13px;font-weight:800;font-size:15px;line-height:1.2;text-align:center;box-shadow:0 5px 0 rgba(0,0,0,.2);transform:translate(-50%,-100%);will-change:transform,left,top}
 #bubble::after{content:"";position:absolute;left:50%;bottom:-13px;margin-left:-9px;border:9px solid transparent;border-top:12px solid var(--ink);border-bottom:0}
 #bubble::before{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-6px;border:6px solid transparent;border-top:9px solid #fff;border-bottom:0;z-index:1}
@@ -206,6 +215,7 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
     <div style="display:flex;flex-direction:column;align-items:center;width:100%">
       <div class="tBtns">
         <button id="bCont" class="btn big verde hid"></button>
+        <button id="bGard" class="btn big verde hid">🌳 IL GIARDINO</button>
         <button id="bList" class="btn big blu hid"></button>
         <button id="bPlay" class="btn big giallo">ADOTTA UN CUCCIOLO</button>
         <a id="salaLink" class="btn rosso sala hid" href="#" target="_blank" rel="noopener">Prova anche gli altri giochi</a>
@@ -245,6 +255,8 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
   <div id="floaters"></div>
   <button class="ic" id="bCam" aria-label="Scatta una foto">📸</button>
   <div id="flash" class="hid"></div>
+  <div id="garden" class="hid"><button class="btn mini rosso" id="gExit">⬅ ESCI</button><button class="btn mini blu" id="gGames">🎲 GIOCHI</button><div id="gScore" class="hid"></div><div id="gHint">Tocca un cucciolo per coccolarlo · trascina per girare</div></div>
+  <div id="gTags"></div>
   <div id="bubble" class="hid"></div>
   <div id="sheetHost"></div>
   <div id="bannerHost"></div>
