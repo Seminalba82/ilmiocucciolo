@@ -1,4 +1,4 @@
-IL MIO CUCCIOLO - v1.1
+IL MIO CUCCIOLO - v1.4
 Un gioco creato da Alberto e Alessandro Seminerio
 
 COSA C'È QUI DENTRO
@@ -27,6 +27,34 @@ Quando la sala giochi ha il suo indirizzo, scrivilo tra gli apici: comparirà in
 LE RAZZE
 Beagle, Carlino, Dogue de Bordeaux, Golden Retriever, Corgi, Bassotto, Barboncino, Bulldog inglese,
 Pastore tedesco, Dalmata, Chihuahua, Husky.
+GATTI (novità v1.2): Siamese, Persiano, Sphynx (il gatto senza pelo), Europeo tigrato, Maine Coon, British Shorthair.
+Nella schermata di creazione c'è il selettore "Cani / Gatti".
+
+NOVITÀ DELLA v1.4
+ANIMALI FANTASTICI (nuova scheda "🦄 Fantastici" nella creazione): Unicorno, T-Rex cucciolo, Capibara, Cucciolo di alieno,
+Cucciolo di tigre, Cucciolo di elefante, Cucciolo di scimmia, Cucciolo di yeti. Ognuno ha il suo verso (nitrito, ruggito, barrito...).
+GIOCHI IN GIARDINO: dal pulsante "🎲 GIOCHI" nel giardino si sceglie un gioco e ci giocano tutti gli animali presenti:
+  🏁 La corsa (2 gare, 3-2-1-VIA, medaglie)   🏃 Chi la prende? (il cacciatore)   ⚽ La partitina (🔵 contro 🔴, primo a 5 gol)
+  💎 Caccia al tesoro (5 round)               💞 Girotondo (prima da una parte, poi dall'altra)
+Per fermare il gioco: "🎲 GIOCHI" → "FERMA IL GIOCO". Alla fine di ogni gioco si torna da soli al gioco libero.
+Le frasi dei fantastici sono in fondo a ELENCO-FRASI.txt (prefisso fant-).
+
+NOVITÀ DELLA v1.3: IL GIARDINO
+Con almeno 2 cuccioli salvati compare il pulsante "🌳 IL GIARDINO" (nel titolo e nelle Impostazioni).
+È un grande prato con staccionata, laghetto, alberi, panchina e una palla: qui si ritrovano TUTTI i cuccioli salvati (fino a 10)
+e giocano da soli: corrono, si rincorrono, si salutano, si annusano, giocano con la palla, si riposano.
+Il gatto fa le fusa e il cane scodinzola. Ogni cucciolo ha il suo cartellino col nome.
+Tocca un cucciolo per coccolarlo (salta, cuoricini, miagolio/abbaio); tocca la palla per lanciarla;
+tocca il prato per chiamare il cucciolo più vicino. Trascina per girare la visuale. Il pulsante 📸 funziona anche qui.
+"ESCI" riporta al titolo.
+
+NOVITÀ DELLA v1.2
+- Pulsante fotocamera 📸 sempre presente (titolo, creazione, gioco): scatta una foto pulita del cucciolo con la scritta del gioco.
+  Su telefono si apre la condivisione (WhatsApp, Foto, ecc.); su computer scarica l'immagine.
+- Carezze: passa il dito sul cucciolo. Il cane, dopo un po', parte a scorrazzare lasciando una scia di cuoricini.
+  Il gatto fa le fusa (con suono e leggere vibrazioni) e escono i cuoricini.
+- Il tempio sullo sfondo ora poggia su una terrazza della collina, che è più larga.
+- I gatti hanno suoni (miagolii), nomi e frasi tutte loro (vedi ELENCO-FRASI.txt, in fondo).
 
 LE VOCI
 Adesso ogni voce (Bimbo, Bimba, Supereroe, Dolce, Brontolone, Nonno saggio) parla con la voce sintetica

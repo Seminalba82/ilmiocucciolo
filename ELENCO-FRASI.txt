@@ -475,3 +475,264 @@ nonnaVia-1.mp3        Nonna, lancia! Sono pronto!
 colpito-1.mp3         Ahia! La ciabatta no!
 coda-1.mp3            Questa volta la prendo, la coda!
 coda-2.mp3            Mi gira la testa...
+
+
+##############################################################
+FRASI SPECIALI PER I GATTI (nome file con prefisso gatto-)
+Se il cucciolo è un gatto dice queste frasi al posto di quelle dei cani. Le chiavi che qui non compaiono restano quelle normali.
+##############################################################
+
+==================== VOCE: Bimbo  (cartella voci/bimbo/) ====================
+gatto-gioca-1.mp3     Lancia, lancia! Che la acchiappo!
+gatto-gioca-2.mp3     Zompo, zompo, zompo!
+gatto-gioca-3.mp3     La prendo io! La prendo io!
+gatto-bagnoNo-1.mp3   L'acqua no! Miaooo!
+gatto-bagnoNo-2.mp3   Uh, che freddo!
+gatto-pulito-1.mp3    Ora sono un fiore!
+gatto-pulito-2.mp3    Che pelo setoso che ho!
+gatto-carezze-1.mp3   Fusa, fusa, fusa...
+gatto-carezze-2.mp3   Ancora, non ti fermare!
+gatto-carezze-3.mp3   Grattami sotto il mento!
+gatto-scoreggia-1.mp3 Non sono stato io!
+gatto-scoreggia-2.mp3 È stato il cane!
+gatto-scoreggia-3.mp3 Quelle crocchette, maledette...
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Mi lecco, ma non basta...
+gatto-sporco-2.mp3    Ho il pelo tutto scompigliato!
+gatto-sporco-3.mp3    Mi prude tutto!
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Nessuno mi vuole bene...
+gatto-triste-2.mp3    Mi sento solo...
+
+==================== VOCE: Bimba  (cartella voci/bimba/) ====================
+gatto-gioca-1.mp3     Lancia, lancia! Che la acchiappo!
+gatto-gioca-2.mp3     Zompo, zompo, zompo!
+gatto-gioca-3.mp3     La prendo io! La prendo io!
+gatto-bagnoNo-1.mp3   L'acqua no! Miaooo!
+gatto-bagnoNo-2.mp3   Uh, che freddo!
+gatto-pulito-1.mp3    Ora sono un fiore!
+gatto-pulito-2.mp3    Che pelo setoso che ho!
+gatto-carezze-1.mp3   Fusa, fusa, fusa...
+gatto-carezze-2.mp3   Ancora, non ti fermare!
+gatto-carezze-3.mp3   Grattami sotto il mento!
+gatto-scoreggia-1.mp3 Non sono stato io!
+gatto-scoreggia-2.mp3 È stato il cane!
+gatto-scoreggia-3.mp3 Quelle crocchette, maledette...
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Mi lecco, ma non basta...
+gatto-sporco-2.mp3    Ho il pelo tutto scompigliato!
+gatto-sporco-3.mp3    Mi prude tutto!
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Nessuno mi vuole bene...
+gatto-triste-2.mp3    Mi sento solo...
+
+==================== VOCE: Supereroe  (cartella voci/eroe/) ====================
+gatto-gioca-1.mp3     Lancia, lancia! Che la acchiappo!
+gatto-gioca-2.mp3     Zompo, zompo, zompo!
+gatto-gioca-3.mp3     La prendo io! La prendo io!
+gatto-bagnoNo-1.mp3   L'acqua no! Miaooo!
+gatto-bagnoNo-2.mp3   Uh, che freddo!
+gatto-pulito-1.mp3    Ora sono un fiore!
+gatto-pulito-2.mp3    Che pelo setoso che ho!
+gatto-carezze-1.mp3   Fusa, fusa, fusa...
+gatto-carezze-2.mp3   Ancora, non ti fermare!
+gatto-carezze-3.mp3   Grattami sotto il mento!
+gatto-scoreggia-1.mp3 Non sono stato io!
+gatto-scoreggia-2.mp3 È stato il cane!
+gatto-scoreggia-3.mp3 Quelle crocchette, maledette...
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Mi lecco, ma non basta...
+gatto-sporco-2.mp3    Ho il pelo tutto scompigliato!
+gatto-sporco-3.mp3    Mi prude tutto!
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Nessuno mi vuole bene...
+gatto-triste-2.mp3    Mi sento solo...
+
+==================== VOCE: Dolce  (cartella voci/dolce/) ====================
+gatto-gioca-1.mp3     Lancia, lancia! Che la acchiappo!
+gatto-gioca-2.mp3     Zompo, zompo, zompo!
+gatto-gioca-3.mp3     La prendo io! La prendo io!
+gatto-bagnoNo-1.mp3   Piano piano, che ho paura.
+gatto-pulito-1.mp3    Ora sono un fiore!
+gatto-pulito-2.mp3    Che pelo setoso che ho!
+gatto-carezze-1.mp3   Sei il mio cuore!
+gatto-carezze-2.mp3   Rrrr... che bello, mi addormento.
+gatto-scoreggia-1.mp3 Non sono stato io!
+gatto-scoreggia-2.mp3 È stato il cane!
+gatto-scoreggia-3.mp3 Quelle crocchette, maledette...
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Mi lecco, ma non basta...
+gatto-sporco-2.mp3    Ho il pelo tutto scompigliato!
+gatto-sporco-3.mp3    Mi prude tutto!
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Nessuno mi vuole bene...
+gatto-triste-2.mp3    Mi sento solo...
+
+==================== VOCE: Brontolone  (cartella voci/rude/) ====================
+gatto-gioca-1.mp3     Lancia meglio, scarso!
+gatto-gioca-2.mp3     Questa la prendeva anche mia nonna.
+gatto-bagnoNo-1.mp3   Se mi lavi ti graffio!
+gatto-pulito-1.mp3    Sembro un gattino da pubblicità. Che vergogna.
+gatto-carezze-1.mp3   Vabbè... continua. Ma non ti ci abituare.
+gatto-carezze-2.mp3   Più a sinistra. No, l'altra sinistra!
+gatto-scoreggia-1.mp3 Sono stato io. E allora?
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Puzza? È profumo di gatto vero.
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Bravo. Lasciami solo, tanto.
+
+==================== VOCE: Nonno saggio  (cartella voci/nonno/) ====================
+gatto-gioca-1.mp3     Lancia, lancia! Che la acchiappo!
+gatto-gioca-2.mp3     Zompo, zompo, zompo!
+gatto-gioca-3.mp3     La prendo io! La prendo io!
+gatto-bagnoNo-1.mp3   L'acqua no! Miaooo!
+gatto-bagnoNo-2.mp3   Uh, che freddo!
+gatto-pulito-1.mp3    Ora sono un fiore!
+gatto-pulito-2.mp3    Che pelo setoso che ho!
+gatto-carezze-1.mp3   Fusa, fusa, fusa...
+gatto-carezze-2.mp3   Ancora, non ti fermare!
+gatto-carezze-3.mp3   Grattami sotto il mento!
+gatto-scoreggia-1.mp3 Non sono stato io!
+gatto-scoreggia-2.mp3 È stato il cane!
+gatto-scoreggia-3.mp3 Quelle crocchette, maledette...
+gatto-ufo-1.mp3       Ho visto cose che voi umani non potete capire.
+gatto-ufo-2.mp3       Mi hanno portato su Marte e mi hanno dato dei bocconcini.
+gatto-ufo-3.mp3       Anche lassù capiscono il miagolio!
+gatto-livello-1.mp3   Sono cresciuto! Sono più grande!
+gatto-livello-2.mp3   Guardate che gatto che sono!
+gatto-zoomies-1.mp3   ZOMPO ZOMPO ZOMPO!
+gatto-zoomies-2.mp3   Nessuno mi prende!
+gatto-zoomies-3.mp3   Largo! Largo!
+gatto-sporco-1.mp3    Mi lecco, ma non basta...
+gatto-sporco-2.mp3    Ho il pelo tutto scompigliato!
+gatto-sporco-3.mp3    Mi prude tutto!
+gatto-sogno-1.mp3     ...topolino... topolino che vola...
+gatto-sogno-2.mp3     ...salto... salto...
+gatto-sogno-3.mp3     ...mamma, il cane parla...
+gatto-triste-1.mp3    Nessuno mi vuole bene...
+gatto-triste-2.mp3    Mi sento solo...
+
+
+##############################################################
+FRASI SPECIALI PER GLI ANIMALI FANTASTICI (nome file con prefisso fant-)
+Valgono per unicorno, t-rex, capibara, alieno, elefante, scimmia, yeti (la tigre usa le frasi dei gatti). Le altre chiavi restano quelle normali.
+##############################################################
+
+==================== VOCE: Bimbo  (cartella voci/bimbo/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Sono tutto sporco, che schifo!
+fant-sporco-2.mp3     Ho bisogno di un bagnetto!
+fant-sporco-3.mp3     Mi prude tutto!
+fant-scoreggia-1.mp3  Non sono stato io!
+fant-scoreggia-2.mp3  È stato quello vicino!
+fant-scoreggia-3.mp3  Sono quelle crocchette, maledette...
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
+
+==================== VOCE: Bimba  (cartella voci/bimba/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Sono tutto sporco, che schifo!
+fant-sporco-2.mp3     Ho bisogno di un bagnetto!
+fant-sporco-3.mp3     Mi prude tutto!
+fant-scoreggia-1.mp3  Non sono stato io!
+fant-scoreggia-2.mp3  È stato quello vicino!
+fant-scoreggia-3.mp3  Sono quelle crocchette, maledette...
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
+
+==================== VOCE: Supereroe  (cartella voci/eroe/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Sono tutto sporco, che schifo!
+fant-sporco-2.mp3     Ho bisogno di un bagnetto!
+fant-sporco-3.mp3     Mi prude tutto!
+fant-scoreggia-1.mp3  Non sono stato io!
+fant-scoreggia-2.mp3  È stato quello vicino!
+fant-scoreggia-3.mp3  Sono quelle crocchette, maledette...
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
+
+==================== VOCE: Dolce  (cartella voci/dolce/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Sono tutto sporco, che schifo!
+fant-sporco-2.mp3     Ho bisogno di un bagnetto!
+fant-sporco-3.mp3     Mi prude tutto!
+fant-scoreggia-1.mp3  Non sono stato io!
+fant-scoreggia-2.mp3  È stato quello vicino!
+fant-scoreggia-3.mp3  Sono quelle crocchette, maledette...
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
+
+==================== VOCE: Brontolone  (cartella voci/rude/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Puzza? È profumo di creatura fantastica.
+fant-scoreggia-1.mp3  Sono stato io. E allora?
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
+
+==================== VOCE: Nonno saggio  (cartella voci/nonno/) ====================
+fant-livello-1.mp3    Sono cresciuto! Sono più grande!
+fant-livello-2.mp3    Guardate che bestione che sono!
+fant-sporco-1.mp3     Sono tutto sporco, che schifo!
+fant-sporco-2.mp3     Ho bisogno di un bagnetto!
+fant-sporco-3.mp3     Mi prude tutto!
+fant-scoreggia-1.mp3  Non sono stato io!
+fant-scoreggia-2.mp3  È stato quello vicino!
+fant-scoreggia-3.mp3  Sono quelle crocchette, maledette...
+fant-sogno-1.mp3      ...volo... volo sopra le nuvole...
+fant-sogno-2.mp3      ...gelato... gelato gigante...
+fant-sogno-3.mp3      ...mamma, il padrone parla...
