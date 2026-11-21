@@ -1,4 +1,4 @@
-# IL MIO CUCCIOLO — riassunto per continuare il lavoro (v1.5, 21/11/2026)
+# IL MIO CUCCIOLO — riassunto per continuare il lavoro (v1.6, 21/11/2026)
 
 Versione a parte di "Cani ca Curri" (v0.1), ora chiamata "Il mio cucciolo", fatta per la sala giochi di Ale (il figlio di Alberto). NON è un gioco del Capone: niente Capone, niente siciliano, niente collegamento alla sala giochi del Capone.
 
@@ -12,6 +12,15 @@ Versione a parte di "Cani ca Curri" (v0.1), ora chiamata "Il mio cucciolo", fatt
 - Valuta: "piccioli" -> "monete"; "La putìa" -> "Il negozio"; minigioco CURRI! -> CORRI!; cibi: Sasizza -> Salsiccia, Pasta e fasòla -> Pasta e fagioli.
 - Tolti: logo/badge del Capone, pulsante "Prova anche gli altri giochi del Capone", crediti Il Capone Quiz. Il pulsante per la sala giochi di Ale c'è ma resta nascosto finché non si scrive l'indirizzo in SALA_URL (b_data.js).
 - - Lo scenario (cortile con balcone, lucine, ficodindia, tempio sullo sfondo, nonna che lancia le ciabatte) è rimasto uguale.
+
+## Novità v1.6 — Rifinitura grafica
+- Ippopotamo: occhi sporgenti e scuri sopra la testa, orecchie dietro (niente più bozzo senza occhi).
+- Elefante: orecchie attaccate alla testa e svasate all'indietro (prima una era staccata).
+- Capibara/scimmia/ippo: occhi scuri (eyeBlack), niente più occhio biancastro; sopracciglia nascoste dove fluttuavano.
+- Gatti tigrati (Europeo, Maine Coon): pattern 'tabby' con strisce larghe, segni sulla fronte, anelli su zampe e coda.
+- Giraffa: macchie vere (mesh) su corpo e collo; Unicorno: muso più equino, coda piena, frangetta.
+- T-Rex più piccolo e inquadrato; scimmia con maschera dietro gli occhi e coda più corta.
+- Camera della creazione adattiva all'altezza della testa (giraffa, unicorno non tagliati).
 
 ## Novità v1.5 — Forme vere
 - Nuovo file src/c2_creatures.js (in build.js dopo c_dog.js): SHAPES[nome](d,X) trasforma lo scheletro-cane dopo buildDog (campo B.shape): elefante, trex, tricera, giraffa, ippo, tigre, scimmia, unicorno, capibara, yeti. Helper colLegs (zampe a colonna).
@@ -50,7 +59,7 @@ Cucciolo 3D da accudire nel cortile di una casa (balcone, lucine, ficodindia, li
 
 ## Come sono fatti i sorgenti
 - sorgenti/src/*.js (a_util, b_data, c_dog, d_world, e_fx, f_game, g_ui, h_main) vengono uniti da build.js dentro index.tpl.html insieme a three.js r149 e al font Bungee.
-- Per ricostruire:  cd sorgenti && npm i three@0.149.0 && mkdir -p dist && node build.js 1.5 bungee.woff2   -> dist/index.html
+- Per ricostruire:  cd sorgenti && npm i three@0.149.0 && mkdir -p dist && node build.js 1.6 bungee.woff2   -> dist/index.html
 - Colori: con three r149 usare sempre l'helper col('#hex') / M('#hex').
 - Porticina per le prove: window.__ccc (step(secondi) fa avanzare il gioco). Prove automatiche in sorgenti/test (Playwright): node run.js [title|breeds|more].
 - I pannelli a scorrimento sopra il canvas vanno con opacity:.999.

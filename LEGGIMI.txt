@@ -1,4 +1,4 @@
-IL MIO CUCCIOLO - v1.5
+IL MIO CUCCIOLO - v1.6
 Un gioco creato da Alberto e Alessandro Seminerio
 
 COSA C'È QUI DENTRO
@@ -29,6 +29,10 @@ Beagle, Carlino, Dogue de Bordeaux, Golden Retriever, Corgi, Bassotto, Barboncin
 Pastore tedesco, Dalmata, Chihuahua, Husky.
 GATTI (novità v1.2): Siamese, Persiano, Sphynx (il gatto senza pelo), Europeo tigrato, Maine Coon, British Shorthair.
 Nella schermata di creazione c'è il selettore "Cani / Gatti".
+
+NOVITÀ DELLA v1.6: RIFINITURA GRAFICA DI TUTTI GLI ANIMALI
+Ippopotamo con occhi visibili, elefante con orecchie attaccate, capibara e scimmia con occhi scuri,
+gatti tigrati con strisce vere, giraffa con macchie, unicorno più cavallo, inquadratura adattiva.
 
 NOVITÀ DELLA v1.5: ANIMALI FANTASTICI RIFATTI
 Gli animali fantastici ora hanno un corpo diverso da quello dei cani: elefante con proboscide, zampe a colonna e orecchie enormi;

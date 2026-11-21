@@ -220,7 +220,7 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
         <button id="bPlay" class="btn big giallo">ADOTTA UN CUCCIOLO</button>
         <a id="salaLink" class="btn rosso sala hid" href="#" target="_blank" rel="noopener">Prova anche gli altri giochi</a>
       </div>
-      <p class="cred">Un gioco creato da <a href="https://albertoseminerio.com" target="_blank" rel="noopener">Alberto</a> e Alessandro Seminerio · v1.5</p>
+      <p class="cred">Un gioco creato da <a href="https://albertoseminerio.com" target="_blank" rel="noopener">Alberto</a> e Alessandro Seminerio · v1.6</p>
     </div>
   </div>
 
@@ -276,7 +276,7 @@ input.nome.err{border-color:var(--rosso);animation:trema .35s}
    IL MIO CUCCIOLO — creato da Alberto e Alessandro Seminerio
    ============================================================ */
 const T=THREE,PI=Math.PI,TAU=PI*2;
-const VERSION='1.5';
+const VERSION='1.6';
 const rnd=(a,b)=>b===undefined?Math.random()*a:a+Math.random()*(b-a);
 const pick=a=>a[(Math.random()*a.length)|0];
 const clamp=(v,a,b)=>v<a?a:(v>b?b:v);
@@ -542,17 +542,17 @@ const BREEDS={
   sphynx:{nome:'Sphynx (senza pelo)',cat:true,skin:true,desc:"Il gatto senza pelo! Ha la pelle morbida come una pesca, orecchie enormi e adora stare sotto le coperte.",
     bodyLen:.55,bodyR:.19,legLen:.4,legR:.05,neckLen:.2,neckR:.09,headR:.25,snoutLen:.08,snoutR:.08,eyeR:.08,ear:['grande','grande'],earSize:.34,tail:'gatto',tailLen:.85,tailFat:.55,col1:'#e9b6a0',col2:'#d99a86',marks:['sopracciglia'],eye:'#8bd45a',nose:'#e07f8e'},
   soriano:{nome:'Europeo tigrato',cat:true,desc:"Il classico gatto di casa, con le strisce da tigre. Curioso, furbo e sempre pronto a combinarne una.",
-    bodyLen:.6,bodyR:.2,legLen:.4,legR:.055,neckLen:.2,neckR:.1,headR:.26,snoutLen:.08,snoutR:.09,eyeR:.078,ear:['punta','punta'],earSize:.26,tail:'gatto',tailLen:.75,tailFat:.9,col1:'#a89070',col2:'#4a3a28',pattern:'tigrato',marks:['codaPunta'],eye:'#e0b422',nose:'#d98a95'},
+    bodyLen:.6,bodyR:.2,legLen:.4,legR:.055,neckLen:.2,neckR:.1,headR:.26,snoutLen:.08,snoutR:.09,eyeR:.078,ear:['punta','punta'],earSize:.26,tail:'gatto',tailLen:.75,tailFat:.9,col1:'#a89070',col2:'#4a3a28',pattern:'tabby',marks:['codaPunta'],eye:'#e0b422',nose:'#d98a95'},
   maine:{nome:'Maine Coon',cat:true,desc:"Il gigante dei gatti: grosso, peloso e dolcissimo, con una coda che sembra un piumino.",
-    bodyLen:.8,bodyR:.25,legLen:.42,legR:.07,neckLen:.2,neckR:.14,headR:.3,snoutLen:.12,snoutR:.11,eyeR:.08,ear:['punta','punta'],earSize:.34,tail:'gatto',tailLen:.85,tailFat:1.15,col1:'#8d6b47',col2:'#e8d9bf',pattern:'tigrato',fluffy:true,marks:['petto'],eye:'#2e7d4f',nose:'#d98a95',scale:1.08},
+    bodyLen:.8,bodyR:.25,legLen:.42,legR:.07,neckLen:.2,neckR:.14,headR:.3,snoutLen:.12,snoutR:.11,eyeR:.08,ear:['punta','punta'],earSize:.34,tail:'gatto',tailLen:.85,tailFat:1.15,col1:'#9a7650',col2:'#4a3220',pattern:'tabby',fluffy:true,marks:[],eye:'#2e7d4f',nose:'#d98a95',scale:1.08},
   british:{nome:'British Shorthair',cat:true,desc:"Tondo, morbido e un po' pigro: sembra un peluche con gli occhi arancioni.",
     bodyLen:.5,bodyR:.27,bodyW:1.1,legLen:.28,legR:.08,neckLen:.1,neckR:.16,headR:.32,snoutLen:.05,snoutR:.11,eyeR:.09,ear:['punta','punta'],earSize:.17,tail:'gatto',tailLen:.55,tailFat:1.3,col1:'#8c95a3',col2:'#b4bcc8',marks:[],eye:'#e08a2b',nose:'#d9a0aa'},
   unicorno:{nome:'Unicorno',fan:true,snd:'unicorno',shape:'unicorno',pitch:.1,desc:"Bianco come la neve, con un corno dorato, la criniera rosa e gli zoccoli d'oro. Dove passa lui, spuntano i brillantini.",
-    bodyLen:.62,bodyR:.24,legLen:.52,legR:.05,neckLen:.4,neckR:.11,headR:.24,snoutLen:.27,snoutR:.095,eyeR:.08,ear:['punta','punta'],earSize:.2,tail:'cavallo',tailLen:.8,tailFat:.9,tailAll:true,col1:'#fbf8ff',col2:'#ff8fd6',horn:true,mane:true,marks:[],eye:'#a45cff',nose:'#f2a3c4',scale:1.05},
+    bodyLen:.62,bodyR:.24,legLen:.52,legR:.05,neckLen:.4,neckR:.11,headR:.24,snoutLen:.26,snoutR:.11,eyeR:.08,ear:['punta','punta'],earSize:.2,tail:'cavallo',tailLen:.8,tailFat:1.9,tailAll:true,col1:'#fbf8ff',col2:'#ff8fd6',horn:true,mane:true,marks:[],eye:'#a45cff',nose:'#f2a3c4',scale:1.05},
   trex:{nome:'T-Rex cucciolo',fan:true,snd:'dino',shape:'trex',pitch:.55,mouthOpen:.16,skin:true,desc:"Un piccolo T-Rex: testona con tanti dentini, braccini minuscoli e una coda enorme. Cammina sulle zampone e fa tremare tutto!",
-    bodyLen:.6,bodyR:.28,legLen:.36,legR:.12,neckLen:.2,neckR:.17,headR:.36,snoutLen:.34,snoutR:.16,eyeR:.06,ear:['nessuna','nessuna'],earSize:.1,tail:'dino',tailLen:1.05,tailFat:1.5,col1:'#6fbf5e',col2:'#3a7a3a',marks:['sellaScura'],eye:'#ffcf3a',nose:'#3a7a3a',scale:.86},
+    bodyLen:.6,bodyR:.28,legLen:.36,legR:.12,neckLen:.2,neckR:.17,headR:.36,snoutLen:.34,snoutR:.16,eyeR:.06,ear:['nessuna','nessuna'],earSize:.1,tail:'dino',tailLen:1.0,tailFat:1.5,col1:'#6fbf5e',col2:'#3a7a3a',marks:['sellaScura'],eye:'#ffcf3a',nose:'#3a7a3a',scale:.7},
   capibara:{nome:'Capibara',fan:true,snd:'capi',shape:'capibara',desc:"Il re della calma: muso squadrato, occhi sulla testa, tranquillo e amico di tutti. Niente lo agita, nemmeno un tuffo nel laghetto.",
-    bodyLen:.74,bodyR:.28,bodyW:1.05,legLen:.22,legR:.075,neckLen:.08,neckR:.18,headR:.3,snoutLen:.14,snoutR:.15,eyeR:.055,ear:['tondo','tondo'],earSize:.12,tail:'corta',tailLen:.1,tailFat:.8,col1:'#a67a4f',col2:'#6d4a2c',marks:['sellaScura'],eye:'#2a1a10',nose:'#3a2a22'},
+    bodyLen:.74,bodyR:.28,bodyW:1.05,legLen:.22,legR:.075,neckLen:.08,neckR:.18,headR:.3,snoutLen:.14,snoutR:.15,eyeR:.062,eyeBlack:true,ear:['tondo','tondo'],earSize:.12,tail:'corta',tailLen:.1,tailFat:.8,col1:'#a67a4f',col2:'#6d4a2c',marks:['sellaScura'],eye:'#2a1a10',nose:'#3a2a22'},
   alieno:{nome:'Cucciolo di alieno',fan:true,snd:'alieno',skin:true,eyeBlack:true,antennae:true,desc:"Arrivato dallo spazio con un'astronave piccola piccola. Ha due antenne luminose e ama i biscotti terrestri.",
     bodyLen:.42,bodyR:.2,legLen:.34,legR:.05,neckLen:.12,neckR:.08,headR:.4,snoutLen:.03,snoutR:.06,eyeR:.15,ear:['nessuna','nessuna'],earSize:.1,tail:'pompon',tailLen:.3,tailFat:.6,col1:'#7fe36a',col2:'#4fb34a',marks:[],eye:'#0b0b1a',nose:'#4fb34a',scale:.95},
   tigre:{nome:'Cucciolo di tigre',cat:true,fan:true,snd:'tigre',shape:'tigre',desc:"Strisce, zampone e faccione tondo. Fa le fusa e un ruggito piccolo piccolo... ma ha già lo sguardo da re della giungla.",
@@ -560,13 +560,13 @@ const BREEDS={
   elefante:{nome:'Cucciolo di elefante',fan:true,snd:'elefante',shape:'elefante',desc:"Orecchie giganti, proboscide e zampe a colonna. Si fa la doccia da solo e spruzza anche te.",
     bodyLen:.55,bodyR:.34,legLen:.3,legR:.14,neckLen:.06,neckR:.24,headR:.37,snoutLen:.05,snoutR:.12,eyeR:.05,ear:['elefante','elefante'],earSize:.6,tail:'elefante',tailLen:.35,tailFat:.7,col1:'#a9b4c2',col2:'#8d98a6',marks:[],eye:'#2a2a33',nose:'#8d98a6',scale:1.05},
   scimmia:{nome:'Cucciolo di scimmia',fan:true,snd:'scimmia',shape:'scimmia',pitch:.3,desc:"Braccia lunghe, orecchie a sventola, faccia buffa e una coda ricciolona. Non sta ferma un secondo!",
-    bodyLen:.42,bodyR:.19,legLen:.36,legR:.05,neckLen:.1,neckR:.1,headR:.3,snoutLen:.05,snoutR:.09,eyeR:.075,ear:['tondo','tondo'],earSize:.32,tail:'scimmia',tailLen:1.1,tailFat:.8,col1:'#7a4a28',col2:'#f0d2a8',marks:[],eye:'#3a2414',nose:'#4a3020'},
+    bodyLen:.42,bodyR:.19,legLen:.36,legR:.05,neckLen:.1,neckR:.1,headR:.3,snoutLen:.05,snoutR:.09,eyeR:.075,ear:['tondo','tondo'],earSize:.32,tail:'scimmia',tailLen:.85,tailFat:1.25,eyeBlack:true,col1:'#7a4a28',col2:'#f0d2a8',marks:[],eye:'#3a2414',nose:'#4a3020'},
   yeti:{nome:'Cucciolo di yeti',fan:true,snd:'yeti',shape:'yeti',pitch:.22,fluffy:true,desc:"L'uomo delle nevi in versione cucciolo: pelo bianco soffice, faccia azzurra, braccia lunghe e piedoni. Adora il gelato.",
     bodyLen:.5,bodyR:.3,legLen:.3,legR:.11,neckLen:.1,neckR:.18,headR:.32,snoutLen:.08,snoutR:.12,eyeR:.07,ear:['nessuna','nessuna'],earSize:.1,tail:'corta',tailLen:.2,tailFat:1.3,col1:'#f2f6fb',col2:'#8fc4ea',marks:['maschera'],eye:'#1f4d9a',nose:'#2a4a7a',scale:1.1},
   giraffa:{nome:'Cucciolo di giraffa',fan:true,snd:'giraffa',shape:'giraffa',pitch:.2,pattern:'giraffa',marks:['zampe'],desc:"Collo lunghissimo, macchie a mosaico e gambe da fenicottero. Vede tutto da lassù e mangia le foglie più alte.",
     bodyLen:.5,bodyR:.2,legLen:.78,legR:.045,neckLen:.8,neckR:.1,headR:.2,snoutLen:.13,snoutR:.1,eyeR:.07,ear:['tondo','tondo'],earSize:.16,tail:'elefante',tailLen:.5,tailFat:.6,col1:'#efc45a',col2:'#9a5a28',eye:'#3a2414',nose:'#5a3a2a',scale:.76},
   ippo:{nome:'Cucciolo di ippopotamo',fan:true,snd:'ippo',shape:'ippo',skin:true,desc:"Faccione enorme, boccone gigante e occhi sulla testa. Adora l'acqua e il fango, e sbadiglia con una bocca grande come una valigia.",
-    bodyLen:.6,bodyR:.38,bodyW:1.12,legLen:.16,legR:.13,neckLen:.05,neckR:.26,headR:.34,snoutLen:.2,snoutR:.26,eyeR:.055,ear:['tondo','tondo'],earSize:.11,tail:'corta',tailLen:.1,tailFat:.8,col1:'#9b8fb4',col2:'#e2a9bd',marks:[],eye:'#2a1a22',nose:'#6f6488'},
+    bodyLen:.6,bodyR:.38,bodyW:1.12,legLen:.16,legR:.13,neckLen:.05,neckR:.26,headR:.34,snoutLen:.2,snoutR:.26,eyeR:.07,eyeBlack:true,ear:['tondo','tondo'],earSize:.11,tail:'corta',tailLen:.1,tailFat:.8,col1:'#9b8fb4',col2:'#e2a9bd',marks:[],eye:'#2a1a22',nose:'#6f6488'},
   tricera:{nome:'Cucciolo di triceratopo',fan:true,snd:'dino',shape:'tricera',skin:true,desc:"Tre corna, una grande gorgiera e il becco da pappagallo. Piccolo, tosto e testardo come pochi!",
     bodyLen:.6,bodyR:.3,legLen:.2,legR:.12,neckLen:.07,neckR:.22,headR:.3,snoutLen:.12,snoutR:.15,eyeR:.06,ear:['nessuna','nessuna'],earSize:.1,tail:'dino',tailLen:.5,tailFat:1.1,col1:'#a39a5e',col2:'#e07a4a',marks:[],eye:'#3a2a10',nose:'#6a5a30'}
 
@@ -646,9 +646,10 @@ function furTex(c1,c2,pat,seed){
     const blob=(x,y,r)=>{const ry=r*(.7+R()*.5),ro=R()*3;for(const ox of[-w,0,w])for(const oy of[-h,0,h]){g.beginPath();g.ellipse(x+ox,y+oy,r,ry,ro,0,TAU);g.fill();}};
     if(pat==='macchie'){for(let i=0;i<34;i++)blob(R()*w,R()*h,5+R()*9);}
     else if(pat==='pezzato'){for(let i=0;i<5;i++){const x=R()*w,y=R()*h;for(let k=0;k<4;k++)blob(x+(R()-.5)*50,y+(R()-.5)*50,20+R()*22);}}
-    else if(pat==='giraffa'){g.fillStyle=c2;for(let gy=0;gy<5;gy++)for(let gx=0;gx<5;gx++){const x=gx*w/5+(gy%2?w/10:0)+(R()-.5)*8,y=gy*h/5+(R()-.5)*8;g.save();g.translate(x+w/10,y+h/10);g.rotate((R()-.5)*.8);g.beginPath();const rx=w/10*(.62+R()*.2),ry=h/10*(.62+R()*.2);g.moveTo(-rx,-ry*.4);g.quadraticCurveTo(-rx*.4,-ry*1.1,rx*.5,-ry*.8);g.quadraticCurveTo(rx*1.1,-ry*.2,rx*.7,ry*.6);g.quadraticCurveTo(rx*.1,ry*1.1,-rx*.7,ry*.7);g.quadraticCurveTo(-rx*1.1,ry*.1,-rx,-ry*.4);g.fill();g.restore();}}
+    else if(pat==='giraffa'){g.fillStyle=c2;for(let gy=0;gy<5;gy++)for(let gx=0;gx<5;gx++){const x=gx*w/5+(gy%2?w/10:0)+(R()-.5)*8,y=gy*h/5+(R()-.5)*8;g.save();g.translate(x+w/10,y+h/10);g.rotate((R()-.5)*.8);g.beginPath();const rx=w/10*(.5+R()*.18),ry=h/10*(.5+R()*.18);g.moveTo(-rx,-ry*.4);g.quadraticCurveTo(-rx*.4,-ry*1.1,rx*.5,-ry*.8);g.quadraticCurveTo(rx*1.1,-ry*.2,rx*.7,ry*.6);g.quadraticCurveTo(rx*.1,ry*1.1,-rx*.7,ry*.7);g.quadraticCurveTo(-rx*1.1,ry*.1,-rx,-ry*.4);g.fill();g.restore();}}
+    else if(pat==='tabby'){g.strokeStyle=c2;g.lineCap='round';for(let i=0;i<4;i++){const x0=i*(w/4)+R()*10;g.lineWidth=18+R()*9;g.beginPath();g.moveTo(x0,-10);for(let y=-10;y<h+10;y+=40){g.quadraticCurveTo(x0+(R()-.5)*22,y+20,x0+(R()-.5)*8,y+40);}g.stroke();}}
     else if(pat==='tigrato'){g.strokeStyle=c2;g.lineWidth=7;g.lineCap='round';for(let i=0;i<13;i++){let x=i*20+R()*6;g.beginPath();g.moveTo(x,-10);for(let y=-10;y<h+10;y+=32){g.quadraticCurveTo(x+(R()-.5)*26,y+16,x,y+32);}g.stroke();}}
-  },[2,1.4]);
+  },pat==='giraffa'?[1.6,2.2]:[2,1.4]);
 }
 
 const POSE0={bodyY:0,bodyRX:0,bodyRY:0,bodyRZ:0,neckRX:0,headRX:0,headRY:0,headRZ:0,jaw:0,tongue:0,FL:0,FR:0,BL:0,BR:0,BLz:0,splay:0,tailUp:0,wagAmp:-1,wagSpd:-1,earX:0,eye:1,brow:0,sq:1};
@@ -694,7 +695,7 @@ function buildDog(c){
   const nk=mk(gC(B.neckR,B.neckLen,5,12),fur1,neck,0,B.neckLen*.42,B.neckLen*.2);nk.rotation.x=.45;
   const head=new T.Group();head.position.set(0,B.neckLen*.95+B.headR*.42,B.neckLen*.42+B.headR*.18);neck.add(head);d.head=head;
   const H=B.headR;
-  const skull=mk(gS(H,26,20),furP,head);skull.scale.set(1.05,.96,1);
+  const skull=mk(gS(H,26,20),pat==='tabby'?fur1:furP,head);skull.scale.set(1.05,.96,1);
   if(has('maschera')){const m=mk(gS(H*.84,18,14),fur2,head,0,-H*.2,H*.24);m.scale.set(1.08,.86,1);}
   if(B.fluffy&&!B.cat){mk(gS(H*.62,12,10),fur1,head,0,H*.72,-H*.05);mk(gS(H*.4,10,8),fur1,head,H*.4,H*.6,H*.1);mk(gS(H*.4,10,8),fur1,head,-H*.4,H*.6,H*.1);}
   /* muso */
@@ -732,7 +733,8 @@ function buildDog(c){
     else if(type==='pendente'){g.position.set(s*H*.84,H*.46,-H*.04);const o=mk(gC(h*.3,h*.62,5,12),em,g,0,-h*.5,0);o.scale.set(.45,1,1);
       if(B.fluffy)mk(gS(h*.42,10,8),fur1,g,0,-h*.85,0);g.rotation.z=s*.2;g.userData={up:false,bz:g.rotation.z,s};}
     else if(type==='tondo'){g.position.set(s*H*.66,H*.62,-H*.04);mk(gS(h*.5,12,10),em,g,0,h*.25,0).scale.set(1,1,.5);mk(gS(h*.32,10,8),inEarM,g,0,h*.25,h*.1).scale.set(1,1,.4);g.rotation.z=-s*.5;g.userData={up:true,bz:g.rotation.z,s};}
-    else if(type==='elefante'){g.position.set(s*H*.82,H*.35,-H*.1);mk(gS(h*.55,14,12),em,g,s*h*.4,-h*.1,0).scale.set(.22,1,.9);mk(gS(h*.42,12,10),inEarM,g,s*(h*.4+.02),-h*.1,0).scale.set(.12,.8,.72);g.rotation.y=s*.4;g.userData={up:false,bz:0,s};}
+    else if(type==='elefante'){g.position.set(s*H*.74,H*.28,-H*.06);const o=mk(gS(h*.55,18,14),em,g,s*h*.17,-h*.1,-h*.2);o.scale.set(.2,1,.95);
+      mk(gS(h*.44,16,12),inEarM,g,s*(h*.17+.05),-h*.1,-h*.2).scale.set(.12,.82,.78);g.rotation.y=-s*.5;g.userData={up:false,bz:0,s};}
     else if(type==='nessuna'){g.userData={up:true,bz:0,s};}
     else{g.position.set(s*H*.58,H*.6,-H*.02);mk(gK(h*.46,h*.62,12),em,g,0,h*.22,0).scale.z=.45;
       const f=mk(gK(h*.4,h*.5,12),has('orecchie')?fur2:furD,g,0,h*.42,h*.2);f.scale.z=.4;f.rotation.x=2.15;g.rotation.z=-s*.32;g.userData={up:true,bz:g.rotation.z,s};}
@@ -755,13 +757,17 @@ function buildDog(c){
 
   /* coda */
   const tr=new T.Group();tr.position.set(0,R*.42,-(L/2+R*.7));body.add(tr);d.tailRoot=tr;d.tail=[];
-  const TT={lunga:{n:5,base:-1.0,curl:.12,r:.19,tap:.42},riccia:{n:5,base:-.35,curl:.62,r:.2,tap:.6},corta:{n:2,base:-.9,curl:.2,r:.26,tap:.7},folta:{n:4,base:-2.0,curl:.12,r:.34,tap:.5},pompon:{n:2,base:-.6,curl:.1,r:.14,tap:.9},gatto:{n:6,base:-1.1,curl:.24,r:.2,tap:.7},dino:{n:6,base:-1.3,curl:.07,r:.3,tap:.22},cavallo:{n:5,base:-.9,curl:.12,r:.16,tap:.55},scimmia:{n:6,base:-.9,curl:.5,r:.1,tap:.7},elefante:{n:3,base:-.5,curl:.1,r:.08,tap:.8}}[B.tail];
+  const TT={lunga:{n:5,base:-1.0,curl:.12,r:.19,tap:.42},riccia:{n:5,base:-.35,curl:.62,r:.2,tap:.6},corta:{n:2,base:-.9,curl:.2,r:.26,tap:.7},folta:{n:4,base:-2.0,curl:.12,r:.34,tap:.5},pompon:{n:2,base:-.6,curl:.1,r:.14,tap:.9},gatto:{n:6,base:-1.1,curl:.24,r:.2,tap:.7},dino:{n:6,base:-1.3,curl:.07,r:.3,tap:.34},cavallo:{n:5,base:-.9,curl:.12,r:.16,tap:.55},scimmia:{n:6,base:-.7,curl:.36,r:.1,tap:.75},elefante:{n:3,base:-.5,curl:.1,r:.08,tap:.8}}[B.tail];
   d.tailBase=TT.base;tr.rotation.x=TT.base;let par=tr;const seg=B.tailLen/TT.n,fat=B.tailFat||1;
   for(let i=0;i<TT.n;i++){const g=new T.Group();g.position.y=i?seg:0;g.rotation.x=i?TT.curl:0;par.add(g);
     const rr=R*TT.r*fat*lerp(1,TT.tap,i/(TT.n-1||1));mk(gC(rr,seg,4,10),(B.tailAll||(has('codaPunta')&&i>=TT.n-2))?fur2:fur1,g,0,seg/2,0);
     g.userData.bx=g.rotation.x;d.tail.push(g);par=g;}
   if(B.tail==='pompon')mk(gS(R*.38,12,10),fur1,par,0,seg+R*.2,0);
 
+  if(pat==='tabby'){for(let k=-1;k<=1;k++){const st=mk(gC(.012,H*(k?.22:.32),3,6),fur2,head,k*H*.15,H*.68,H*.64);st.rotation.x=.9;st.rotation.z=-k*.22;st.castShadow=false;}
+    for(const s of[-1,1])for(let k=0;k<2;k++){const st=mk(gC(.01,H*.2,3,6),fur2,head,s*H*.86,-H*.02-k*H*.16,H*.3);st.rotation.z=PI/2+s*.2;st.rotation.y=s*.5;st.castShadow=false;}
+    d.tail.forEach((g,i)=>{if(i%2===1&&g.children[0])g.children[0].material=fur2;});
+    if(!B.fluffy)for(const k in d.legs){const p=d.legs[k];for(let j=0;j<2;j++){const r=mk(gT(B.legR*1.02,B.legR*.24,5,12),fur2,p,0,-B.legLen*(.34+j*.2),0);r.rotation.x=PI/2;r.castShadow=false;}}}
   /* collare */
   d.collarM=M(c.collar||'#d51f2a',{roughness:.5});
   const co=mk(gT(B.neckR*1.1,B.neckR*.2,8,22),d.collarM,neck,0,B.neckLen*.28,B.neckLen*.13);co.rotation.x=PI/2+.45;
@@ -974,19 +980,27 @@ const SHAPES={
   d.nose.visible=false;
   for(let i=0;i<4;i++)mk(gS(R*.13,8,6),furD,X.body,(i%2?1:-1)*R*.45,R*.85,L*.3-i*L*.2);},
  /* ---------- GIRAFFA ---------- */
- giraffa(d,X){const{B,H,sr,sl,muz,head,fur1,fur2,furD,blackM}=X;
+ giraffa(d,X){const{B,R,L,W,H,sr,sl,muz,head,fur1,fur2,furD,blackM,R0}=X;
+  /* macchie vere (mesh) sul corpo e sul collo: la texture si deformava sul tronco */
+  d.body.children[0].material=fur1;d.body.children[1].material=fur1;
+  const zz=new T.Vector3(0,0,1),sp=(par,x,y,z,nx,ny,nz,r)=>{const o=mk(gS(r,10,8),fur2,par,x,y,z);o.scale.set(1+R0()*.4,1+R0()*.4,.36);o.quaternion.setFromUnitVectors(zz,new T.Vector3(nx,ny,nz).normalize());o.castShadow=false;};
+  for(let i=0;i<30;i++){const a=-PI*.2+R0()*PI*1.4,z=(R0()-.45)*(L+R*.9);sp(d.body,Math.cos(a)*R*W*.985,Math.sin(a)*R*.985,z,Math.cos(a),Math.sin(a),0,R*(.17+R0()*.12));}
+  const nk=d.neck.children[0];for(let i=0;i<16;i++){const a=R0()*TAU,y=(R0()-.5)*B.neckLen*1.05;sp(nk,Math.cos(a)*B.neckR*.97,y,Math.sin(a)*B.neckR*.97,Math.cos(a),0,Math.sin(a),B.neckR*(.34+R0()*.2));}
   for(const s of[-1,1]){const o=new T.Group();o.position.set(s*H*.3,H*.82,-H*.1);o.rotation.z=-s*.12;head.add(o);mk(gY(H*.1,H*.12,H*.5,8),fur1,o,0,H*.25,0);mk(gS(H*.15,10,8),furD,o,0,H*.52,0);}
   mk(gS(sr*1.1,10,8),fur2,muz,0,-sr*.1,sl*.8).scale.set(1.05,.9,1);
   const tl=d.tail[d.tail.length-1];mk(gS(X.R*.14,8,6),furD,tl,0,B.tailLen/5,0).scale.set(1,1.6,1);
   for(const k of Object.keys(d.legs)){const p=d.legs[k];mk(gS(B.legR*1.05,8,6),furD,p,0,-B.legLen*.5,B.legR*.2);}},
  /* ---------- IPPOPOTAMO ---------- */
- ippo(d,X){const{B,R,L,H,sr,sl,muz,head,fur1,fur2,furD,blackM}=X;
+ ippo(d,X){const{B,R,L,H,sr,sl,muz,head,fur1,fur2,furD,blackM,er}=X;
   colLegs(d,{r:B.legR,mat:fur1,nails:4,nailR:.16,nailL:.2,nailMat:furD});
   muz.scale.set(1.5,.95,1);
+  const ex=H*.46,ey=H*.7,ez=H*.56;d.ex=ex;d.face.position.set(0,ey,ez+er*.75);
   for(const s of[-1,1]){mk(gS(sr*.55,10,8),fur1,muz,s*sr*.6,sr*.08,sl+sr*.6).scale.set(1,.9,.9);mk(gS(sr*.12,8,6),blackM,muz,s*sr*.5,sr*.78,sl+sr*.25);
-    const e=d.eyes[s>0?0:1];e.position.set(s*H*.48,H*.62,H*.42);const ls=mk(gS(X.er*1.6,10,8),fur1,head,s*H*.48,H*.6,H*.38);ls.scale.set(1,.8,.8);
+    const e=d.eyes[s>0?0:1];e.position.set(s*ex,ey,ez);
+    const ls=mk(gS(er*1.5,14,10),fur1,head,s*ex,ey-er*.15,ez-er*1.05);ls.scale.set(1,.85,.9);
     const t=mk(gK(.03,.1,6),IVORY(),d.jaw,s*sr*.5,sr*.1,sl*.85);t.castShadow=false;}
-  for(const b of d.brows)b.position.y=H*.62+X.er*1.5;
+  for(const b of d.brows)b.visible=false;
+  d.ears.forEach(g=>{const s=g.userData.s;g.position.set(s*H*.66,H*.58,-H*.26);g.scale.setScalar(1.15);});
   const bel=mk(gC(R*.8,L*.85,6,14),fur2,X.body,0,-R*.45,0);bel.rotation.x=PI/2;bel.scale.set(.95,1,.6);},
  /* ---------- TIGRE ---------- */
  tigre(d,X){const{B,R,L,H,sr,sl,muz,head,fur1,fur2,blackM,body}=X;const wh=M('#fff6e8',{roughness:.9});
@@ -1001,7 +1015,7 @@ const SHAPES={
  /* ---------- SCIMMIA ---------- */
  scimmia(d,X){const{B,R,L,H,sr,sl,muz,head,fur1,fur2,furD,body,ex,ey,ez,er}=X;
   mk(gS(H*.8,16,12),fur2,head,0,-H*.12,H*.42).scale.set(1,.92,.5);
-  for(const s of[-1,1])mk(gS(er*1.9,12,10),fur2,head,s*ex,ey,ez-.03).scale.set(1,1.05,.5);
+  for(const s of[-1,1])mk(gS(er*1.9,12,10),fur2,head,s*ex,ey,ez-er*.95).scale.set(1,1.05,.5);
   mk(gS(sr*1.3,12,10),fur2,muz,0,-sr*.2,sl*.5).scale.set(1.1,.9,1);
   mk(gS(H*.5,12,10),furD,head,0,H*.55,-H*.15);
   d.ears.forEach(g=>{const s=g.userData.s;g.position.set(s*H*.95,H*.12,-H*.02);g.rotation.z=-s*1.3;g.userData.bz=g.rotation.z;g.scale.setScalar(1.25);});
@@ -1010,13 +1024,19 @@ const SHAPES={
   for(const k of Object.keys(d.legs)){const p=d.legs[k];mk(gS(B.legR*1.5,10,8),fur2,p,0,-B.legLen,B.legR*.6).scale.set(1,.6,1.6);for(let i=0;i<3;i++)mk(gC(B.legR*.35,B.legR*.8,3,6),fur1,p,(i-1)*B.legR*.7,-B.legLen,B.legR*1.9).rotation.x=PI/2;}
   const ts=d.tail[d.tail.length-1];mk(gS(X.R*.14,8,6),fur1,ts,0,B.tailLen/6,0);},
  /* ---------- UNICORNO ---------- */
- unicorno(d,X){const{B,fur2}=X;const gold=M('#ffd54a',{roughness:.3,metalness:.5});
-  for(const k of Object.keys(d.legs)){const p=d.legs[k];if(p.children[2])p.children[2].material=gold;}},
+ unicorno(d,X){const{B,H,sr,sl,muz,head,fur1,fur2,blackM}=X;const gold=M('#ffd54a',{roughness:.3,metalness:.5});
+  for(const k of Object.keys(d.legs)){const p=d.legs[k];if(p.children[2])p.children[2].material=gold;}
+  muz.rotation.x=.32;muz.scale.set(1.12,1.15,1);
+  mk(gS(H*.62,14,12),fur1,head,0,-H*.45,H*.28).scale.set(1.0,.8,1.05);
+  for(const s of[-1,1])mk(gS(sr*.13,8,6),blackM,muz,s*sr*.42,sr*.3,sl+sr*.55).scale.set(1,1.3,.6);
+  const fl=mk(gS(H*.3,10,8),fur2,head,0,H*.84,H*.42);fl.scale.set(1.1,.9,.6);fl.rotation.x=-.5;},
  /* ---------- CAPIBARA ---------- */
- capibara(d,X){const{B,H,sr,sl,muz,head,furD,blackM}=X;
+ capibara(d,X){const{B,H,sr,sl,muz,head,furD,fur1,blackM,er}=X;
   muz.scale.set(1.25,1,1);
-  for(const s of[-1,1]){mk(gS(sr*.2,8,6),blackM,muz,s*sr*.38,sr*.62,sl+sr*.3);const e=d.eyes[s>0?0:1];e.position.set(s*H*.5,H*.32,H*.62);}
-  for(const b of d.brows)b.position.y=H*.32+X.er*1.5;
+  const ex=H*.5,ey=H*.4,ez=H*.8;d.ex=ex;d.face.position.set(0,ey,ez+er*.75);
+  for(const s of[-1,1]){mk(gS(sr*.2,8,6),blackM,muz,s*sr*.38,sr*.62,sl+sr*.3);const e=d.eyes[s>0?0:1];e.position.set(s*ex,ey,ez);
+    const ls=mk(gS(er*1.4,12,10),furD,head,s*ex,ey-er*.1,ez-er*1.0);ls.scale.set(1,.9,.9);}
+  for(const b of d.brows)b.visible=false;
   for(const e of d.ears)e.position.y=H*.72;},
  /* ---------- YETI ---------- */
  yeti(d,X){const{B,R,H,fur1,fur2}=X;
@@ -2098,11 +2118,14 @@ const GAME={
    AVVIO, CAMERA, CICLO PRINCIPALE
    ============================================================ */
 const CAM={p:new T.Vector3(0,3.2,9),l:new T.Vector3(0,1.1,0),fov:56,sh:0,first:true};
-const _tp=new T.Vector3(),_tl=new T.Vector3();
+const _tp=new T.Vector3(),_tl=new T.Vector3(),_tv=new T.Vector3();
 function camShake(a){CAM.sh=Math.max(CAM.sh,a);}
 function camUpdate(dt){if(window.__freeCam)return;
   const asp=innerWidth/innerHeight,por=asp<1,d=DOG;let fov=por?clamp(2*Math.atan(.2556/asp)*180/PI,34,64):40;
-  if(G.screen==='creator'){if(por){_tp.set(0,1.9,7.3);_tl.set(0,-.78,0);fov=clamp(fov-8,30,52);}else{_tp.set(1.9,1.7,5.6);_tl.set(1.9,.85,0);fov=36;}}
+  if(G.screen==='creator'){
+    if(d&&d.topY===undefined){d.root.updateMatrixWorld(true);_tv.setFromMatrixPosition(d.head.matrixWorld);d.topY=_tv.y-d.root.position.y+d.H*d.DSC*(d.B.horn?1.5:1.15);}
+    const ex=d?Math.max(0,d.topY-1.7)*1.25:0;
+    if(por){_tp.set(0,1.9+ex*.9,7.3+ex*3.4);_tl.set(0,-.78+ex*.55,0);fov=clamp(fov-8,30,52);}else{_tp.set(1.9,1.7+ex*.5,5.6+ex*2.6);_tl.set(1.9,.85+ex*.4,0);fov=36;}}
   else if(G.mini){_tp.set(0,3.4,por?10.2:10.5);_tl.set(0,2.4,0);fov=por?Math.min(66,fov+6):46;}
   else if(G.screen==='garden'){const a=GC.yaw,R=por?23:15;_tp.set(GX+Math.sin(a)*R,por?13:7.6,Math.cos(a)*R);_tl.set(GX,.4,por?3.2:0);fov=por?clamp(fov+6,40,66):46;}
   else if(G.focus){const f=G.focus;_tp.set(f.x*.92,f.y+2.1,f.z+(por?f.d:f.d+1.2));_tl.set(f.x,f.y,f.z);}
